@@ -1,0 +1,478 @@
+/*@font-face {
+    font-family: 'plantinlight';
+    src: url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-light-webfont.eot');
+    src: url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/plantin-light-webfont.woff2') format('woff2'),
+         url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-light-webfont.woff') format('woff'),
+         url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-light-webfont.ttf') format('truetype'),
+         url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-light-webfont.svg#plantinlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'plantinlight';
+    src: url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-lightitalic-webfont.eot');
+    src: url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/plantin-lightitalic-webfont.woff2') format('woff2'),
+         url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-lightitalic-webfont.woff') format('woff'),
+         url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-lightitalic-webfont.ttf') format('truetype'),
+         url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-lightitalic-webfont.svg#plantinlight') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'plantinlight';
+    src: url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-bold-webfont.eot');
+    src: url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/plantin-bold-webfont.woff2') format('woff2'),
+         url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-bold-webfont.woff') format('woff'),
+         url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-bold-webfont.ttf') format('truetype'),
+         url('http://www.studiomondo.com.au/wp-content/themes/Mondo/assets/fonts/plantin-bold-webfont.svg#plantinbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+*/
+
+/*	Resets
+	------	*/
+
+    html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+    p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
+    img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
+    dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, figure, figcaption, hgroup, 
+    menu, footer, header, nav, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    ul {
+        padding-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    article, aside, canvas, figure, figure img, figcaption, hgroup,
+    footer, header, nav, section, audio, video {
+        display: block;
+    }
+    
+    a img {border: 0;}
+    
+    
+    
+    /*	Typography presets
+        ------------------	*/
+    
+    body {
+        font: 17px/24px Book Antiqua, Palatino, Constantia, "Palatino Linotype", "Book Antiqua", serif;
+    }
+    
+    .small, small {
+        font-size: 13px;
+        line-height: 18px;
+    }
+    
+    ul.small {
+        font-size: 17px;
+        line-height: 24px;	
+    }
+    
+    .lesslinespacing {
+        line-height: 120%;	
+    }
+    
+    .hanginglines {
+        padding-left: 10px;
+    }
+    .hanginglines p {
+        text-indent: -10px;	
+    }
+    
+    a { color: #2d8692; }
+    a:link {text-decoration: underline}
+    a:visited {text-decoration: underline}
+    a:active {text-decoration: underline}
+    a:hover {text-decoration: none; color: #e0c781;}
+    
+    nav a {
+        color: #ffffff;
+        display: block;
+        transition: all 0.1s;
+    }
+    nav a:link {text-decoration: none}
+    nav a:visited {text-decoration: none}
+    nav a:active {text-decoration: none}
+    nav a:hover {
+        text-decoration: none;
+        color: #e0c781;
+        margin-left: 10px;
+    }
+    
+    
+    footer a { color: #2d8692; }
+    footer a:link {text-decoration: none}
+    footer a:visited {text-decoration: none}
+    footer a:active {text-decoration: none}
+    footer a:hover {text-decoration: none; color: #ffffff; }
+    
+    article h1 {
+        font-size: 40px;
+        line-height: 45px;	
+        padding-bottom: 10px;
+        color: #515151;
+    }
+    
+    article h2 {
+        font-size: 28px;
+        line-height: 40px;	
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color: #2d8692;
+    }
+    
+    article h3 {
+        font-size: 20px;
+        line-height: 22px;	
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color: #137785;
+    }
+    
+    article p, article div.likeparagraph {
+        padding-top: 5px;
+        padding-bottom: 5px;	
+    }
+    
+    .highlight {
+        color: #137785;
+    }
+    
+    .indent {
+        padding-left: 10px;	
+    }
+    
+    nav li li {
+        padding-left: 15px;
+    }
+    nav ul {
+        padding: 0;	
+    }
+    
+    table.bordered {
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+    table.bordered td {
+        border: 2px solid #999;
+        padding: 0 3px;
+        vertical-align: top;
+    }
+    
+    .TDB-tweet-container, aside p {
+        font-size: 0.9em;	
+    }
+    aside .newsflashaside {
+        padding-top:10px;	
+    }
+    
+    .floatright {
+        float:right;
+        margin-left: 5px;	
+    }
+    .floatleft {
+        float:left;
+        margin-right: 5px;	
+    }
+    
+    dt.article-info-term {
+        display: none;
+    }
+    dd.category-name {
+        font-size: 80%;
+    }
+    dd.published {
+        font-size: 80%;
+        color: rgba(60,60,60,0.9);
+    }
+    ul.tags li {
+        display: inline-block;
+        margin-right: 5px;
+        background-color: #e0dbbf;
+        color: white;
+        padding: 5px;
+        padding-bottom: 0;
+        padding-top: 1px;
+        font-size: 85%;
+    }
+    ul.tags a {
+        text-decoration: none;
+    }
+    ul.tags a:hover {
+        color: white;
+    }
+    ul.tags {
+        padding-left: 0;
+    }
+    h2 a, h2 a:visited, h2 a:link {
+        text-decoration: none;
+    }
+    div.blog > div {
+        border-bottom: 2px solid #2d8692;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+    }
+    div.blog > div:last-of-type {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    #comments > .comments-list {
+        margin-left:0;
+    }
+    #jc .rbox {
+        border-left: 2px solid #2d8692;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+    }
+    #jc .comment-author, #comments-form p, #comments-report-form p, #comments-form span, #comments-form .counter {
+        font-family: Book Antiqua, Palatino, Constantia, "Palatino Linotype", "Book Antiqua", serif;
+    }
+    #jc .comments-buttons {
+        font-size: 80%;
+    }
+    #jc {
+        margin-top: 10px;
+    }
+    #jc h4 {
+        border-bottom: none;
+    }
+    #jc #comments-list-footer {
+        margin-top: 5px !important;
+        margin-left: 0 !important;
+    }
+    #jc .busy {
+        display: none !important;
+    }
+    #jc #comments-form p, #jc #comments-form-buttons {
+        margin-left: 0 !important;
+    }
+    #jc #comments-form-buttons div {
+        background: none;
+    }
+    #jc #comments-form-buttons .btn {
+        background: #137785;
+    }
+    #jc #comments-form-buttons .btn a {
+        color: white;
+    }
+    #jc #comments-footer {
+        display: none;
+    }
+    #jc #comments-inline-edit {
+        border: none;
+    }
+    #jc span.bbcode {
+        display: none !important;
+    }
+    
+    blockquote.twitter-tweet {
+        margin-left: 10px;
+        border-left: 2px solid #2d8692;
+        padding: 10px;
+        background-color: rgba(200,200,200,0.5);
+    }
+    
+    /* Selection colours (easy to forget) */
+    
+    /*::selection 	 	{background: #e6d0a2;} DEPRECATED */
+    ::-moz-selection 	{background: #e6d0a2;}
+    /*img::selection 		{background: transparent;} DEPRECATED */
+    img::-moz-selection	{background: transparent;}
+    body {-webkit-tap-highlight-color: #e6d0a2;}
+    
+    
+    /*
+    * DEFAULT LAYOUT
+    */
+    
+    body {
+        padding: 72px 48px 84px;
+        background: rgb(232,232,232);
+        color: rgb(60,60,60);
+        -webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+    }
+    
+    #content {
+        margin: 0 auto;
+        /*width: 896px;*/
+        display: grid;
+        grid-gap: 10px; /* Old */
+        gap: 10px;
+        grid-template-columns: 180px auto 140px;
+    }
+    
+    #masthead {
+        height: 150px;
+        position: relative;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: #e0c781;
+        grid-column-end: span 3;
+    }
+    #masthead img {
+        display:block;	
+    }
+    #masthead #masthead-music {
+        width: 548px;
+        height: 76px;
+        position: absolute;
+        top: 0;
+        left: 0;	
+    }
+    #masthead #masthead-face {
+        width: 458px;
+        height: 136px;
+        position:absolute;
+        right:0;
+        bottom: 0;
+    }
+    #masthead #masthead-name {
+        width: 228px;
+        height: 74px;
+        position: absolute;
+        left:0;
+        bottom: 0;
+    }
+    
+    nav {
+        background-color: #137785;
+        color: #ffffff;
+        border-top-left-radius: 10px;
+        padding: 10px;
+    }
+    
+    nav ul, nav li {
+        list-style-type: none;	
+    }
+    
+    article {
+        background-color: #ffffff;
+        border: 1px solid #137785;
+        padding: 10px;
+    }
+    aside {
+        background-color: #e0dbbf;
+        border-top-right-radius: 10px;
+        padding: 10px;
+    }
+    
+    footer {
+        position: relative;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: #e0c781;
+        padding: 10px;
+        font-size: 80%;
+        grid-column-end: span 3;
+    }
+    
+    /*
+    * WIDE
+    */
+    
+    @media only screen and (min-width: 1200px) {
+        body {
+            padding: 72px 72px 84px;
+        }
+        #content {
+            grid-template-columns: 200px auto 160px;
+        }
+    }
+    
+    /*
+    * TABLET
+    */
+    
+    @media only screen and (max-width: 991px) {
+        body {
+            padding: 48px 28px 60px;
+        }
+        #masthead {
+            grid-column-end: span 2;
+        }
+        #content {
+            grid-template-columns: 180px auto;
+        }
+        footer {
+            grid-column-end: span 2;
+        }
+        aside {
+            grid-column-end: span 2;
+            border-radius: 0px;
+        }
+        article {
+            border-top-right-radius: 10px;
+        }
+    }
+    
+    /*
+    * WIDE MOBILE
+    */
+    
+    @media only screen and (max-width: 760px) {
+        body {
+            padding: 5px;
+        }
+        #content {
+            grid-template-columns: auto;
+        }
+        #content * {
+            grid-column-end: span 1;
+        }
+        article {
+            border-radius: 0px;
+        }
+        nav {
+            border-top-right-radius: 10px;
+        }
+    
+        #masthead {
+            width: auto;
+            height: 80px;
+        }
+        #masthead #masthead-face {
+            width: 240px;
+            height: 71px;
+        }
+        #masthead #masthead-name {
+            width: 120px;	
+            height: 40px;
+            top: 40px;
+        }
+        #masthead #masthead-music {
+            width: 300px;
+            height: 42px;
+        }
+    }
+    
+    /*
+    * SMALL MOBILE
+    */
+    
+    @media only screen and (max-width: 479px) {
+        #masthead #masthead-name {
+            top: 10px;
+        }
+        #masthead #masthead-music {
+            display: none;	
+        }
+    
+        img.big {
+            width: 288px;
+            height: auto;	
+        }
+    }
