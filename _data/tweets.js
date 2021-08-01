@@ -9,7 +9,7 @@ var client = new Twitter({
 });
 var params = {user_id: '20627036', count: 1 };
 
-module.exports = async function() { debugger
+module.exports = async function() {
   return client.get('statuses/user_timeline', params)
     .catch((err) => {
       console.error(err);

@@ -1,6 +1,7 @@
 require('dotenv').config();
 const moment = require('moment');
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const newwindowlinks = require('./_transforms/newwindowlinks');
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
@@ -75,9 +76,11 @@ module.exports = function (eleventyConfig) {
 
             return a;
         });
-      });
+    });
 
-      eleventyConfig.addFilter("friendlyDate", function(dateObj) { 
+    eleventyConfig.addFilter("friendlyDate", function (dateObj) {
         return moment(dateObj, "ddd MMM D HH:mm:ss ZZ YYYY").locale("en").fromNow();
-      });
+    });
+
+    eleventyConfig.addTransform("newwindowlinks", newwindowlinks);
 };
