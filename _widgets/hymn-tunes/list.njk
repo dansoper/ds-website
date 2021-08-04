@@ -1,0 +1,12 @@
+<p>
+{% for item in hymnTunes.fullYear %}
+<br />{{ item.dateString }}: {{ item.details.title }}
+<!--
+<?php if (false and ! $done[$list['word']]) { ?>
+<img id="masthead-music" src="/modules/mod_hymntunes/tunes/<?php echo $list['word'] ?>.png" title="<?php echo $list['title'] ?>" alt="<?php echo $list['title'] ?>" />
+<?php } 
+$done[$list['word']] = true;
+?>
+-->
+{% endfor %}
+</p>

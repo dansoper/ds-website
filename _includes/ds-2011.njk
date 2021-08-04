@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<jdoc:include type="head" />
 	<link rel="stylesheet" media="all" href="/templates/ds-2011/css/style.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
-	<script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template?>/js/newwindowlinks.js"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function(){
-			newwindowlinks();
-		});
-	</script>
-
 </head>
 
 <body>
 	<div id="content">
 		<div id="masthead">
-			<jdoc:include type="modules" name="ds-seasonal" />
+			{% include '../_widgets/hymn-tunes/today.njk' %}
 
 			<img id="masthead-name" src="/templates/ds-2011/images/mastheadbottomleft.png" alt="Dan Soper" />
 			<img id="masthead-face" src="/templates/ds-2011/images/mastheadright.png" alt="Dan Soper" />
