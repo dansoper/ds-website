@@ -1,0 +1,7 @@
+<div class="likeparagraph {% if event.repertoire %}tall{% endif %}">
+    <div><i>{{ event.startDateFormatted }}{% if event.endDateFormatted %} &ndash; {{ event.endDateFormatted }}{% endif%}{% if event.time %}, {{ event.time }}{% endif %}</i></div>
+    <div class="highlight">{{ event.title }}</div>
+    {% if event.repertoire %}<div class="small indent">{{ event.repertoire | lineBreaksToBr | safe }}</div>{% endif %}
+    {% if event.location %}<div>{{ event.location }}</div>{% endif %}
+    {% if event.role %}<div><i>{{ event.role }}</i></div>{% endif %}
+</div>

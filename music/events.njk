@@ -1,12 +1,31 @@
 ---
-layout: ds-2011
+layout: main
+pageTitle: Events
 eleventyNavigation:
   key: Events
   parent: Music
 ---
 
-Events
+<h3 id="upcoming">Upcoming events</h3>
+<p class="small">(<a href="#archive">jump to archive events</a>)</p>
 
-<a href="/music/compositions">Compositions Page</a>
-<a href="https://www.google.co.uk">Out Page</a>
-<a href="https://www.dansoper.co.uk">Out Page</a>
+<div class="grid-group">
+  {% for event in futureEvents %}
+    {% include '../_widgets/events/event.njk' %}
+  {% endfor %}
+</div>
+
+<h3 id="archive">Archive</h3>
+<p class="small">(<a href="#upcoming">return to upcoming events</a>)</p>
+
+{% for year in pastEvents %}
+  <h4 id="{{ year.year }}">{{ year.year }}</h4>
+  <p class="small">Jump to: 
+    {% for subYear in pastEvents %}{% if year.year != subYear.year %}<a href="#{{ subYear.year }}">{{ subYear.year }}</a> {% endif %}{% endfor %}
+  </p>
+  <div class="grid-group">
+    {% for event in year.events %}
+      {% include '../_widgets/events/event.njk' %}
+    {% endfor %}
+  </div>
+{% endfor %}

@@ -27,6 +27,13 @@ const getYearData = function () {
 		const dateString = dateParts.find(a => a.type == "weekday").value + " " + dateParts.find(a => a.type == "day").value + " " + dateParts.find(a => a.type == "month").value + " " + dateParts.find(a => a.type == "year").value;
 		days.push({ date: dt, dateString, details: { word: day, title: titles[day] } });
 	}
+	const done = {};
+	days.forEach(d => {
+		if (!done[d.details.word]) {
+			d.details.first = true;
+			done[d.details.word] = true;
+		}
+	});
 	return days;
 }
 

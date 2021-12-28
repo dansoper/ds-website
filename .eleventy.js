@@ -4,6 +4,8 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const newwindowlinks = require('./_transforms/newwindowlinks');
 
 module.exports = function (eleventyConfig) {
+    eleventyConfig.addLayoutAlias('main', 'ds-2011');
+
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
     eleventyConfig.addPassthroughCopy("templates");
@@ -80,6 +82,10 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addFilter("friendlyDate", function (dateObj) {
         return moment(dateObj, "ddd MMM D HH:mm:ss ZZ YYYY").locale("en").fromNow();
+    });
+
+    eleventyConfig.addFilter("lineBreaksToBr", function (str) {
+        return str.replace(/\n/g, "\n<br>");
     });
 
     eleventyConfig.addTransform("newwindowlinks", newwindowlinks);

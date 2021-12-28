@@ -18,6 +18,7 @@
 			{{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
 		</nav>
         <article>
+			{% if pageTitle %}<h2>{{ pageTitle }}</h2>{% endif %}
             {{ content | safe }}
 			<jdoc:include type="modules" name="ds-contentbottom" />
 		</article>

@@ -526,3 +526,32 @@
         background-position: -48px 0;
     }
     
+    .grid-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 5px;
+        grid-gap: 5px; /* Temp */
+        margin-bottom: 10px;
+    }
+    .grid-group .tall {
+        grid-row-end: span 2;
+    }
+    .grid-group .likeparagraph {
+        border: 1px solid rgb(10,10,10,0.7);
+        padding: 5px;
+        box-shadow: rgba(10,10,10,0.1) 2px 2px;
+        animation: fadeDown 1.5s;
+    }
+    @keyframes fadeDown {
+        from {
+            top: -20px;
+            position: relative;
+            opacity: 0;
+        }
+        to {
+            top: 0px;
+            position: relative;
+            opacity: 1;
+        }
+    
+    }
