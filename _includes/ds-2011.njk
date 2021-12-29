@@ -4,6 +4,8 @@
 	<link rel="stylesheet" media="all" href="/templates/ds-2011/css/style.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+	<link href="/templates/ds-2011/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+	<title>{% if pageTitle %}{{ pageTitle }} - Dan Soper{% else %}Dan Soper{% endif %}</title>
 </head>
 
 <body>
@@ -20,15 +22,11 @@
         <article>
 			{% if pageTitle %}<h2>{{ pageTitle }}</h2>{% endif %}
             {{ content | safe }}
-			<jdoc:include type="modules" name="ds-contentbottom" />
 		</article>
 		<aside>
             {% include '../_widgets/twitter/last-tweet.njk' %}
-			<jdoc:include type="modules" name="ds-aside" />
 		</aside>
-		<footer>
-			<jdoc:include type="modules" name="ds-footer" />
-		</footer>
+		<footer>Copyright © Dan Soper {% year %} | <a href="/contact">Contact</a></footer>
 	</div>
 </body>
 

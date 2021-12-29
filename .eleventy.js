@@ -4,6 +4,7 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const newwindowlinks = require('./_transforms/newwindowlinks');
 const detailtoggles = require('./_transforms/detailtoggles');
 const highslideImageShortcode = require('./_shortcodes/image');
+const yearShortcode = require('./_shortcodes/year');
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addLayoutAlias('main', 'ds-2011');
@@ -96,4 +97,5 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addTransform("detailtoggles", detailtoggles);
 
     eleventyConfig.addNunjucksAsyncShortcode("responsiveImage", highslideImageShortcode);
+    eleventyConfig.addShortcode("year", yearShortcode);
 };
