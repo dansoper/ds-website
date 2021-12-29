@@ -7,14 +7,13 @@ module.exports = function (rawContent, outputPath) {
     const check = function (obj) {
         var href = obj.href.toLowerCase();
         return (
-            (href.indexOf("http://") != -1 && hostnames.filter(hostname => href.indexOf(hostname) == -1).length == 0) ||
-            (href.indexOf("https://") != -1 && hostnames.filter(hostname => href.indexOf(hostname) == -1).length == 0) ||
+            (href.indexOf("http://") != -1 && hostnames.filter(hostname => href.indexOf(hostname) != -1).length == 0) ||
+            (href.indexOf("https://") != -1 && hostnames.filter(hostname => href.indexOf(hostname) != -1).length == 0) ||
             (href.indexOf('.pdf') !== -1) ||
             (href.indexOf('.png') !== -1)
         ) ? true : false;
     };
     const set = function (obj) {
-        console.log("check");
         obj.target = "_blank";
         obj.className = "external";
     };

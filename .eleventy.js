@@ -2,6 +2,8 @@ require('dotenv').config();
 const moment = require('moment');
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const newwindowlinks = require('./_transforms/newwindowlinks');
+const detailtoggles = require('./_transforms/detailtoggles');
+const highslideImageShortcode = require('./_shortcodes/image');
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addLayoutAlias('main', 'ds-2011');
@@ -9,6 +11,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
     eleventyConfig.addPassthroughCopy("templates");
+    eleventyConfig.addPassthroughCopy("images");
+    eleventyConfig.addPassthroughCopy("lib");
 
     eleventyConfig.addFilter("tweetsFilter", obj => {
         return obj.map(a => {
@@ -89,4 +93,7 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addTransform("newwindowlinks", newwindowlinks);
+    eleventyConfig.addTransform("detailtoggles", detailtoggles);
+
+    eleventyConfig.addNunjucksAsyncShortcode("responsiveImage", highslideImageShortcode);
 };
