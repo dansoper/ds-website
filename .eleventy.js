@@ -89,6 +89,17 @@ module.exports = function (eleventyConfig) {
         return moment(dateObj, "ddd MMM D HH:mm:ss ZZ YYYY").locale("en").fromNow();
     });
 
+    eleventyConfig.addFilter("dateObjectToYmd", function (dateObj) {
+        return moment(dateObj).format("YYYYMMDD");
+    });
+    eleventyConfig.addFilter("dateObjectToYm", function (dateObj) {
+        return moment(dateObj).format("YYYYMM");
+    });
+    eleventyConfig.addFilter("numberOfDaysSince", function (dateObj, since) {
+        if (dateObj == null || dateObj == "") return moment().diff(moment(since, "YYYYMMDD"), "days");
+        return moment(dateObj).diff(moment(since, "YYYYMMDD"), "days");
+    });
+
     eleventyConfig.addFilter("lineBreaksToBr", function (str) {
         return str.replace(/\n/g, "\n<br>");
     });

@@ -9,14 +9,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "@11ty/eleventy-img": "^1.0.0",
-    "@11ty/eleventy-navigation": "^0.3.2",
+    "@11ty/eleventy": "latest",
+    "@11ty/eleventy-img": "latest",
+    "@11ty/eleventy-navigation": "latest",
     "dotenv": "^10.0.0"
   },
   "dependencies": {
     "jsdom": "^16.6.0",
     "moment": "^2.29.1",
+    "railway-spreadsheet": "github:dansoper/railway-spreadsheet",
     "twitter": "^1.7.1"
   }
 }
