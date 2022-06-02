@@ -1,0 +1,280 @@
+/* Reset */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
+img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figure, figcaption, hgroup, 
+menu, footer, header, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/*
+* DEFAULT LAYOUT
+*/
+
+body {
+    padding: 72px 48px 84px;
+    background: rgb(232,232,232);
+    color: rgb(60,60,60);
+}
+
+#content {
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 10px; /* Old */
+    gap: 10px;
+    grid-template-columns: 180px auto 140px;
+}
+
+header {
+    height: 150px;
+    position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #e0c781;
+    grid-column-end: span 3;
+}
+header img {
+    display:block;	
+}
+#masthead-music {
+    width: 548px;
+    height: 76px;
+    position: absolute;
+    top: 0;
+    left: 0;	
+}
+#masthead-face {
+    width: 458px;
+    height: 136px;
+    position:absolute;
+    right:0;
+    bottom: 0;
+}
+#masthead-name {
+    width: 228px;
+    height: 74px;
+    position: absolute;
+    left:0;
+    bottom: 0;
+}
+
+nav {
+    background-color: #137785;
+    color: #ffffff;
+    border-top-left-radius: 10px;
+    padding: 10px;
+}
+nav ul, nav li {
+    list-style-type: none;	
+}
+nav li li {
+    padding-left: 15px;
+}
+nav ul {
+    padding: 0;	
+}
+
+main {
+    background-color: #ffffff;
+    border: 1px solid #137785;
+    padding: 10px;
+}
+
+main h1, main h2, main h3, main h4, main p, main section {
+    padding: 5px 0;
+}
+
+main section {
+    clear: left;
+}
+
+main h2 ~ small, main h3 ~ small {
+    display: block;
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+aside {
+    background-color: #e0dbbf;
+    border-top-right-radius: 10px;
+    padding: 10px;
+}
+
+footer {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #e0c781;
+    padding: 10px;
+    font-size: 80%;
+    grid-column-end: span 3;
+}
+
+/*
+* WIDE
+*/
+
+@media only screen and (min-width: 1200px) {
+    body {
+        padding: 72px 72px 84px;
+    }
+    #content {
+        grid-template-columns: 200px auto 160px;
+    }
+}
+
+/*
+* TABLET
+*/
+
+@media only screen and (max-width: 991px) {
+    body {
+        padding: 48px 28px 60px;
+    }
+    #content {
+        grid-template-columns: 180px auto;
+    }
+    header {
+        grid-column-end: span 2;
+    }
+    main {
+        border-top-right-radius: 10px;
+    }
+    aside {
+        grid-column-end: span 2;
+        border-radius: 0px;
+    }
+    footer {
+        grid-column-end: span 2;
+    }
+}
+
+/*
+* WIDE MOBILE
+*/
+
+@media only screen and (max-width: 760px) {
+    body {
+        padding: 5px;
+    }
+    #content {
+        grid-template-columns: auto;
+    }
+    #content > * {
+        grid-column-end: span 1;
+    }
+    main {
+        border-radius: 0px;
+    }
+    header {
+        width: auto;
+        height: 80px;
+    }
+    #masthead-face {
+        width: 240px;
+        height: 71px;
+    }
+    #masthead-name {
+        width: 120px;	
+        height: 40px;
+        top: 40px;
+    }
+    #masthead-music {
+        width: 300px;
+        height: 42px;
+    }
+    nav {
+        border-top-right-radius: 10px;
+    }
+}
+
+/*
+* SMALL MOBILE
+*/
+
+@media only screen and (max-width: 479px) {
+    #masthead-name {
+        top: 10px;
+    }
+    #masthead-music {
+        display: none;	
+    }
+}
+
+/*
+* TYPOGRAPHY
+*/
+
+body {
+    font: 17px/24px Book Antiqua, Palatino, Constantia, "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.small, small {
+    font-size: 13px;
+    line-height: 18px;
+}
+
+main h1 {
+    font-size: 28px;
+    line-height: 40px;	
+    color: #2d8692;
+}
+
+main h2 {
+    font-size: 20px;
+    line-height: 22px;	
+    color: #137785;
+}
+
+main h3 {
+    font-size: 17px;
+    line-height: 24px;	
+    color: #515151;
+}
+
+aside {
+    font-size: 0.9em;
+}
+
+/* Links */
+
+a { color: #2d8692; }
+a:link {text-decoration: underline}
+a:visited {text-decoration: underline}
+a:active {text-decoration: underline}
+a:hover {text-decoration: none; color: #e0c781;}
+
+nav a {
+    color: #ffffff;
+    display: block;
+    transition: all 0.1s;
+}
+nav a:link {text-decoration: none}
+nav a:visited {text-decoration: none}
+nav a:active {text-decoration: none}
+nav a:hover {
+    text-decoration: none;
+    color: #e0c781;
+    margin-left: 10px;
+}
+
+footer a { color: #2d8692; }
+footer a:link {text-decoration: none}
+footer a:visited {text-decoration: none}
+footer a:active {text-decoration: none}
+footer a:hover {text-decoration: none; color: #ffffff; }
+
+/* Within page layout */
+
+.float-right {
+    float:right;
+    margin-left: 5px;	
+}
+.float-left {
+    float:left;
+    margin-right: 5px;	
+}

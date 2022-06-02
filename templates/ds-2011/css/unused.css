@@ -1,0 +1,194 @@
+/*	Resets
+	------	*/
+
+    ul {
+        padding-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    /*article, aside, canvas, figure, figure img, figcaption, hgroup,
+    footer, header, nav, section, audio, video {
+        display: block;
+    }*/
+    
+    a img {border: 0;}
+    
+    
+    
+    
+    ul.small {
+        font-size: 17px;
+        line-height: 24px;	
+    }
+    
+    .lesslinespacing {
+        line-height: 120%;	
+    }
+    
+    .hanginglines {
+        padding-left: 10px;
+    }
+    .hanginglines p {
+        text-indent: -10px;	
+    }
+    
+    
+    
+    
+    
+    
+    .highlight {
+        color: #137785;
+    }
+    
+    .indent {
+        padding-left: 10px;	
+    }
+    
+    
+    
+    table.bordered {
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+    table.bordered td {
+        border: 2px solid #999;
+        padding: 0 3px;
+        vertical-align: top;
+    }
+    
+    aside .newsflashaside {
+        padding-top:10px;	
+    }
+    
+    
+    dt.article-info-term {
+        display: none;
+    }
+    dd.category-name {
+        font-size: 80%;
+    }
+    dd.published {
+        font-size: 80%;
+        color: rgba(60,60,60,0.9);
+    }
+    ul.tags li {
+        display: inline-block;
+        margin-right: 5px;
+        background-color: #e0dbbf;
+        color: white;
+        padding: 5px;
+        padding-bottom: 0;
+        padding-top: 1px;
+        font-size: 85%;
+    }
+    ul.tags a {
+        text-decoration: none;
+    }
+    ul.tags a:hover {
+        color: white;
+    }
+    ul.tags {
+        padding-left: 0;
+    }
+    h2 a, h2 a:visited, h2 a:link {
+        text-decoration: none;
+    }
+    div.blog > div {
+        border-bottom: 2px solid #2d8692;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+    }
+    div.blog > div:last-of-type {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    #comments > .comments-list {
+        margin-left:0;
+    }
+    #jc .rbox {
+        border-left: 2px solid #2d8692;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+    }
+    #jc .comment-author, #comments-form p, #comments-report-form p, #comments-form span, #comments-form .counter {
+        font-family: Book Antiqua, Palatino, Constantia, "Palatino Linotype", "Book Antiqua", serif;
+    }
+    #jc .comments-buttons {
+        font-size: 80%;
+    }
+    #jc {
+        margin-top: 10px;
+    }
+    #jc h4 {
+        border-bottom: none;
+    }
+    #jc #comments-list-footer {
+        margin-top: 5px !important;
+        margin-left: 0 !important;
+    }
+    #jc .busy {
+        display: none !important;
+    }
+    #jc #comments-form p, #jc #comments-form-buttons {
+        margin-left: 0 !important;
+    }
+    #jc #comments-form-buttons div {
+        background: none;
+    }
+    #jc #comments-form-buttons .btn {
+        background: #137785;
+    }
+    #jc #comments-form-buttons .btn a {
+        color: white;
+    }
+    #jc #comments-footer {
+        display: none;
+    }
+    #jc #comments-inline-edit {
+        border: none;
+    }
+    #jc span.bbcode {
+        display: none !important;
+    }
+    
+    blockquote.twitter-tweet {
+        margin-left: 10px;
+        border-left: 2px solid #2d8692;
+        padding: 10px;
+        background-color: rgba(200,200,200,0.5);
+    }
+    
+    /* Selection colours (easy to forget) */
+    
+    ::selection 	 	{background: #e6d0a2;}
+    ::-moz-selection 	{background: #e6d0a2;}
+    /*img::selection 		{background: transparent;} DEPRECATED */
+    img::-moz-selection	{background: transparent;}
+    body {-webkit-tap-highlight-color: #e6d0a2;}
+    
+    
+    body {
+        -webkit-text-size-adjust: none; /* Stops Mobile Safari from auto-adjusting font-sizes */
+        text-size-adjust: none;
+    }
+    
+    /*
+    * SMALL MOBILE
+    */
+    
+    @media only screen and (max-width: 479px) {
+        img.big {
+            width: 288px;
+            height: auto;	
+        }
+    }
+
+/* temp? */
+
+    
+    
+
+    

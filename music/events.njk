@@ -4,10 +4,13 @@ pageTitle: Events
 eleventyNavigation:
   key: Events
   parent: Music
+stylesheets:
+ - templates/ds-2011/css/grid
+ - music/events
 ---
 
-<h3 id="upcoming">Upcoming events</h3>
-<p class="small">(<a href="#archive">jump to archive events</a>)</p>
+<h2 id="upcoming">Upcoming events</h3>
+<small>(<a href="#archive">jump to archive events</a>)</small>
 
 <div class="grid-group">
   {% for event in futureEvents %}
@@ -15,14 +18,16 @@ eleventyNavigation:
   {% endfor %}
 </div>
 
-<h3 id="archive">Archive</h3>
-<p class="small">(<a href="#upcoming">return to upcoming events</a>)</p>
+<h2 id="archive">Archive</h3>
+<small>(<a href="#upcoming">return to upcoming events</a>)</small>
+
+{% set headingLevel = 4 %}
 
 {% for year in pastEvents %}
-  <h4 id="{{ year.year }}">{{ year.year }}</h4>
-  <p class="small">Jump to: 
+  <h3 id="{{ year.year }}">{{ year.year }}</h3>
+  <small>Jump to: 
     {% for subYear in pastEvents %}{% if year.year != subYear.year %}<a href="#{{ subYear.year }}">{{ subYear.year }}</a> {% endif %}{% endfor %}
-  </p>
+  </small>
   <div class="grid-group">
     {% for event in year.events %}
       {% include '../_widgets/events/event.njk' %}

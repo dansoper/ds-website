@@ -1,18 +1,14 @@
 {% set twitter = tweets | tweetsFilter %}
-<h4>Latest Tweet</h4>
-{%- for tweet in twitter -%}
-    <div class="TDB-tweet TDB-last-tweet">
-		<div class="TDB-tweet-container TDB-tweet-align-left">
-			<div class="TDB-tweet-text">
-                {% if tweet.tweetedBy != "dansoper" %}
-                <p><a href="https://www.twitter.com/dansoper">dansoper</a></p>
-                {% endif %}
-                <span class="TDB-tweet-user"><b><a href="http://twitter.com/intent/user?screen_name={{ tweet.tweetedBy }}" rel="nofollow">{{ tweet.tweetedBy }}</a> </b></span>
-                {{ tweet.text | safe }}
-            </div>
-            <p class="TDB-tweet-time">{% if tweet.retweeted_status != null %}Retweeted {% endif %}<a href="https://twitter.com/dansoper/status/{{ tweet.id_str }}" rel="nofollow" target="_blank" class="external">{{ tweet.created_at | friendlyDate}}</a> via {{ tweet.source | safe }}{% if tweet.in_reply_to_screen_name != null and tweet.in_reply_to_status_id_str != null %} in reply to <a href="https://twitter.com/{{ tweet.in_reply_to_screen_name }}/status/{{ tweet.in_reply_to_status_id_str }}" rel="nofollow">{{ tweet.in_reply_to_screen_name }}</a>{% endif %}{% if tweet.retweet_count > 0 %} &bull; {{ tweet.retweet_count }} retweet{% if tweet.retweet_count > 1 %}s{% endif %}{% endif %}</p>
-            
-            <div class="TDB-tweet-actions"><span class="TDB-action TDB-reply"><a href="http://twitter.com/intent/tweet?in_reply_to={{ tweet.id_str }}" title="Reply" rel="nofollow" target="_blank" class="external"></a></span><span class="TDB-action TDB-retweet"><a href="http://twitter.com/intent/retweet?tweet_id={{ tweet.id_str }}" title="Retweet" rel="nofollow" target="_blank" class="external"></a></span><span class="TDB-action TDB-favorite"><a href="http://twitter.com/intent/favorite?tweet_id={{ tweet.id_str }}" title="Like" rel="nofollow" target="_blank" class="external"></a></span></div>
-		</div>
-	</div>
-{%- endfor -%}
+<section class="latest-tweet">
+  <h1>Latest Tweet</h1>
+  {%- for tweet in twitter -%}
+  {% if tweet.tweetedBy != "dansoper" %}
+  <p><a href="https://www.twitter.com/dansoper">dansoper</a></p>
+  {% endif %}
+  <p><b><a href="http://twitter.com/intent/user?screen_name={{ tweet.tweetedBy }}" rel="nofollow">{{ tweet.tweetedBy }}</a> </b>
+  {{ tweet.text | safe }}</p>
+  <p class="time">{% if tweet.retweeted_status != null %}Retweeted {% endif %}<a href="https://twitter.com/dansoper/status/{{ tweet.id_str }}" rel="nofollow" target="_blank" class="external">{{ tweet.created_at | friendlyDate}}</a> via {{ tweet.source | safe }}{% if tweet.in_reply_to_screen_name != null and tweet.in_reply_to_status_id_str != null %} in reply to <a href="https://twitter.com/{{ tweet.in_reply_to_screen_name }}/status/{{ tweet.in_reply_to_status_id_str }}" rel="nofollow">{{ tweet.in_reply_to_screen_name }}</a>{% endif %}{% if tweet.retweet_count > 0 %} &bull; {{ tweet.retweet_count }} retweet{% if tweet.retweet_count > 1 %}s{% endif %}{% endif %}</p>
+
+  <span class="action reply"><a href="http://twitter.com/intent/tweet?in_reply_to={{ tweet.id_str }}" title="Reply" rel="nofollow" target="_blank" class="external"></a></span><span class="action retweet"><a href="http://twitter.com/intent/retweet?tweet_id={{ tweet.id_str }}" title="Retweet" rel="nofollow" target="_blank" class="external"></a></span><span class="action like"><a href="http://twitter.com/intent/favorite?tweet_id={{ tweet.id_str }}" title="Like" rel="nofollow" target="_blank" class="external"></a></span>
+  {%- endfor -%}
+</section>

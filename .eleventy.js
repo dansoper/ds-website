@@ -1,5 +1,6 @@
 require('dotenv').config();
 const moment = require('moment');
+const cleanCss = require('clean-css');
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const newwindowlinks = require('./_transforms/newwindowlinks');
 const detailtoggles = require('./_transforms/detailtoggles');
@@ -103,6 +104,12 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("lineBreaksToBr", function (str) {
         return str.replace(/\n/g, "\n<br>");
     });
+
+    eleventyConfig.addFilter("cssmin", function (code) {
+        return new cleanCss({}).minify(code).styles;
+    });
+
+    eleventyConfig.addFilter("unique", arr => arr instanceof Array && arr.filter((e, i, arr) => arr.indexOf(e) == i) || arr);
 
     eleventyConfig.addTransform("newwindowlinks", newwindowlinks);
     eleventyConfig.addTransform("detailtoggles", detailtoggles);

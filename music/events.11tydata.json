@@ -466,7 +466,7 @@
 		{"startDate":20140104,"endDate":20140105,"title":"Choral Services sung by The Lynwood Singers","repertoire":"Aston in F\r\nPeeters: Missa Festiva\r\nHowells in G\r\nMendelssohn: There shall a star","location":"St Albans Cathedral","role":"Organ"},
 		{"startDate":20140315,"time":"7pm","title":"\"Mixing their Music\" concert with Chelmsford, Ely and St Edmundsbury Cathedral Choristers","location":"Ely Cathedral","role":"Organ Accompanist (small part)"},
 		{"startDate":20140329,"time":"5.30pm","title":"Choral Evensong attended by the Archbishop of Canterbury to celebrate the Centenary of the Diocese","repertoire":"Including a World Premiere of the composition competition winner, Janet Wheeler's 'The Martyrdom of St Edmund'","location":"St Edmundsbury Cathedral","role":"Organ"},
-		{"startDate":20140405,"title":"Marriage to Katherine Beddus","repertoire":"(<a href=\"&quot;http://katherine.and.danielsoper.co.uk&quot;\">more details&lt;/a&gt;)"},
+		{"startDate":20140405,"title":"Marriage to Katherine Beddus","repertoire":"(<a href=\"http://katherine.and.dansoper.co.uk\">more details&lt;/a&gt;)"},
 		{"startDate":20140421,"title":"Choral Evensong sung by Sanderstead Singers","repertoire":"Howells in G\r\nStanford: Ye choirs of new Jerusalem","location":"St Paul's Cathedral","role":"Organ"},
 		{"startDate":20140518,"time":"5pm","title":"Cathedral Choir Concert for the Bury St Edmunds Festival","location":"St Edmundsbury Cathedral","role":"Organ Accompanist"},
 		{"startDate":20140524,"endDate":20140531,"title":"St Edmundsbury Cathedral Choir Tour to Germany","role":"Organ"},
@@ -573,8 +573,7 @@
 		{"startDate":20200306,"time":"12.30pm","title":"Lunchtime Recital","repertoire":"Alain: Litanies\r\nParry: Chorale Prelude on “Rockingham”\r\nLeighton: Rockingham, Paean\r\nBuxtehude: Praeludium in C (BuxWV 137)\r\nStanford: Organ Sonata No 1, 2nd movement (Op. 149)\r\nVaughan Williams: Three Preludes founded on Welsh Hymn Tunes\r\nStanley: Voluntary in F (Op. 7, No 6)\r\nMushel: Toccata","location":"Chelmsford Cathedral","role":"Organ"},
 		{"startDate":20200314,"time":"5pm","title":"Organ Recital (part of Organ Festival)","repertoire":"Alain: Litanies\r\nParry: Chorale Prelude on “Rockingham”\r\nLeighton: Rockingham, Paean\r\nBuxtehude: Praeludium in C (BuxWV 137)\r\nReger: Aus tiefer Not schrei ich zu dir (Op. 67)\r\nBach: Aus tiefer Not schrei ich zu dir (BWV 686)\r\nStanford: Organ Sonata No 1 (Op. 149)\r\nVaughan Williams: Three Preludes founded on Welsh Hymn Tunes\r\nStanley: Voluntary in F (Op. 7, No 6)\r\nMushel: Toccata","location":"St Edmundsbury Cathedral","role":"Organ"},
 
-		{"startDate":20210417,"endDate":20210418,"title":"Choral Services sung by The Lynwood Singers","location":"St Albans","role":"Organ"},
-		{"startDate":20210823,"endDate":20210829,"title":"Choral Services sung by Sanderstead Singers","location":"Bristol Cathedral","role":"Director"},
+		{"startDate":20211030,"endDate":20211031,"title":"Choral Services sung by The Lynwood Singers","location":"Bath Abbey","role":"Organ"},
 
 		{"startDate":20220822,"endDate":20220828,"title":"Choral Services sung by Sanderstead Singers","location":"Truro Cathedral","role":"Director"}
 	]

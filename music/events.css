@@ -1,0 +1,14 @@
+.grid-group article h3, .grid-group article h4 {
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 24px;
+    color: #137785;
+    padding:0;
+}
+.grid-group article small {
+    padding-left: 10px;
+    display: block;
+}
+.grid-group article .role, .grid-group article .date {
+    font-style: italic;
+}

@@ -1,28 +1,35 @@
+---
+stylesheets:
+ - templates/ds-2011/css/layout
+ - templates/ds-2011/css/twitter
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" media="all" href="/templates/ds-2011/css/style.css"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link href="/templates/ds-2011/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
 	<title>{% if pageTitle %}{{ pageTitle }} - Dan Soper{% else %}Dan Soper{% endif %}</title>
+	{% set css %}{% for st in stylesheets | unique %}{% include st + ".css" %}{% endfor %}{% endset %}{# capture the CSS content as a Nunjucks variable then feed it through css in filter to minify #}
+	<style>
+	{{ css | cssmin | safe }}
+	</style>
 </head>
 
 <body>
 	<div id="content">
-		<div id="masthead">
+		<header>
 			{% include '../_widgets/hymn-tunes/today.njk' %}
-
 			<img id="masthead-name" src="/templates/ds-2011/images/mastheadbottomleft.png" alt="Dan Soper" />
 			<img id="masthead-face" src="/templates/ds-2011/images/mastheadright.png" alt="Dan Soper" />
-		</div>
+		</header>
 		<nav>
 			{{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
 		</nav>
-        <article>
-			{% if pageTitle %}<h2>{{ pageTitle }}</h2>{% endif %}
+        <main>
+			{% if pageTitle %}<h1>{{ pageTitle }}</h1>{% endif %}
             {{ content | safe }}
-		</article>
+		</main>
 		<aside>
             {% include '../_widgets/twitter/last-tweet.njk' %}
 		</aside>

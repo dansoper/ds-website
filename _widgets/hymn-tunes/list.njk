@@ -1,11 +1,9 @@
-<p>
 {% for item in hymnTunes.fullYear %}
 <br>{{ item.dateString }}: {{ item.details.title }}
 
 {% if hymnTunesOptions.showTunes %}
 {% if item.details.first %} 
-<br><img id="masthead-music" src="/templates/ds-2011/images/hymn-tunes/{{ item.details.word }}.png" title="{{ item.details.word }}" alt="{{ item.details.word }}" />
+<br><img src="/templates/ds-2011/images/hymn-tunes/{{ item.details.word }}.png" title="{{ item.details.word }}" alt="{{ item.details.word }}" />
 {% endif %}
 {% endif %}
 {% endfor %}
-</p>

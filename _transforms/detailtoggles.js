@@ -8,9 +8,9 @@ module.exports = function (rawContent, outputPath) {
         let matches = [...matched];
         for (let i = 0; i < matches.length; i++) {
             matchCount++;
-            let newHtml = ` <a href="#" id="dt_title_${matchCount}" class="dt_title_block small">`;
+            let newHtml = ` <a href="#" id="dt_title_${matchCount}" class="small">`;
             newHtml += `(more)`;
-            newHtml += `</a><div id="vs_${matchCount}"><div class="dt_detail_block">`;
+            newHtml += `</a><div id="vs_${matchCount}"><div>`;
             newHtml += matches[i][1];
             newHtml += "</div></div>";
 

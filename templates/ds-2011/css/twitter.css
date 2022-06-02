@@ -1,0 +1,40 @@
+section.latest-tweet {
+    word-wrap: break-word;
+}
+section.latest-tweet .time {
+    font-size: 85%;
+    margin-bottom: 0;
+}
+section.latest-tweet .action {
+    background: url("/templates/ds-2011/images/twitter-icon-sprite.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 16px;
+    position: relative;
+    width: 16px;
+}
+section.latest-tweet .action a {
+    background: none repeat scroll 0 0 transparent !important;
+    height: 16px;
+    left: 0;
+    position: absolute;
+    text-decoration: none !important;
+    width: 16px;
+}
+section.latest-tweet .action.reply {
+    background-position: 0 0;
+}
+section.latest-tweet .action.reply:hover {
+    background-position: -16px 0;
+}
+section.latest-tweet .action.retweet {
+    background-position: -80px 0;
+}
+section.latest-tweet .action.retweet:hover {
+    background-position: -96px 0;
+}
+section.latest-tweet .action.like {
+    background-position: -32px 0;
+}
+section.latest-tweet .action.like:hover {
+    background-position: -48px 0;
+}
