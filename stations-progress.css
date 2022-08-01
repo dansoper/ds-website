@@ -1,0 +1,96 @@
+#map-container {
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+}
+#map-container > fieldset {
+  height: 50px;
+  flex-basis: 50px;
+  flex-grow: 0;
+}
+#map-container.full {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+#map-container > fieldset > div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+#map-container > fieldset > div > input {
+  flex-grow: 1;
+}
+#map-container > fieldset > label {
+  position: relative;
+  top: 7px;
+  left: 8px;
+}
+
+#map-container > fieldset > div > #slider-date {
+  min-width: 100px;
+  text-align: right;
+  flex-basis: 10%;
+}
+
+#map-container.full > fieldset {
+  background: white;
+}
+
+#map-container.full > fieldset > div > #slider-date {
+  padding-right: 8px;
+}
+
+.leaflet-control-fullscreen a {
+  background:#fff url(/images/stations/fullscreen-icon.png) no-repeat 0 0;
+}
+
+#map { height: 100%; flex-grow: 1; }
+
+.visited, .unvisited {
+  background: lightcoral;
+  border:2px solid rgba(255,255,255,0.5);
+  font-weight:bold;
+  text-align:center;
+  border-radius:50%;
+  line-height:9px;
+  box-shadow: rgb(0,0,0,0.3) 0px 0px 4px 1px;
+}
+
+.visited {
+  background: green;
+}
+
+.visited-post-date {
+  background: palegreen;
+}
+
+.countytable {
+  border: dimgrey 1px solid;
+}
+.countytable td {
+  padding: 0 3px;
+}
+.countytable tr.complete td.percentage {
+  background-color: green;
+  color: white;
+}
+.countytable tr.started td.percentage {
+  background-color: moccasin;
+}
+.countytable tr.halfway td.percentage {
+  background-color: palegreen;
+}
+.countytable tr.total td {
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-width: 1px 0;
+  background: #eee;
+}
+.countytable tr.total-on-map td {
+  border: 1px solid #ddd;
+  border-width: 1px 0;
+  background: #eee;
+}

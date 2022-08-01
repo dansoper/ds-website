@@ -1,0 +1,131 @@
+---
+layout: main
+pageTitle: Stations Progress
+stylesheets:
+- stations-progress
+---
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+ integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+ crossorigin=""></script>
+<div id="map-container">
+  <div id="map"></div>
+
+  <fieldset>
+    <label for="ra">Drag the slider to show progress over time:</label>
+    <div>
+      <input type="range" min="0" max="{{ null | numberOfDaysSince("20200801") }}" name="r" id="ra" value="{{ null | numberOfDaysSince("20200801") }}">
+      <div id="slider-date"></div>
+    </div>
+  </fieldset>
+</div>
+
+{% set js %}
+  const mymap = L.map('map').setView([51.805, 0.29], 8);
+  L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="/copyright">OpenStreetMap contributors</a>. Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>',
+    maxZoom: 22
+  }).addTo(mymap);
+
+  const openrailwaymap = new L.TileLayer('http://{s}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png', {
+    attribution: 'Railway layer: <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0</a> <a href="http://www.openrailwaymap.org/">OpenRailwayMap</a> and OpenStreetMap',
+    minZoom: 2,
+    maxZoom: 19,
+    tileSize: 256
+  }).addTo(mymap);
+
+  {% for station in visitedStations %}
+  {
+    let myIcon = L.divIcon({className: 'visited visited-{{ station.firstTrip.date | numberOfDaysSince("20200801") }}'});
+    L.marker([{{ station.lat }}, {{ station.long }}], { icon: myIcon }).bindPopup("<b>{{ station.name }}</b> ({{ station.code }})<br>First visit: ({{ station.firstTrip.date | dateObjectToShortDate }})<br>Number of visits: {{ station.visitCount }}").addTo(mymap);
+  }
+  {% endfor %}
+  const myIcon2 = L.divIcon({className: 'unvisited'});
+  {% for station in unvisitedStations %}
+    L.marker([{{ station.lat }}, {{ station.long }}], { icon: myIcon2 }).bindPopup("<b>{{ station.name }}</b> ({{ station.code }})").addTo(mymap);
+  {% endfor %}
+
+  function updateIconsForDate(d) {
+    const dateElement = document.getElementById("slider-date");
+    const date = new Date(2020, 7, 1);
+    date.setDate(date.getDate() + Number(d));
+    const yyyy = date.getFullYear();
+    let mm = date.getMonth() + 1;
+    let dd = date.getDate();
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    dString = dd + '/' + mm + '/' + yyyy;
+    dateElement.innerText = dString;
+    {% for station in visitedStations %}
+    if (Number(d) >= {{ station.firstTrip.date | numberOfDaysSince("20200801") }}) {
+      const els = document.getElementsByClassName("visited-{{ station.firstTrip.date | numberOfDaysSince("20200801") }}");
+      for (el of els) {
+        el.classList.remove("visited-post-date");
+      }
+    } else {
+      const els = document.getElementsByClassName("visited-{{ station.firstTrip.date | numberOfDaysSince("20200801") }}");
+      for (el of els) {
+        el.classList.add("visited-post-date");
+      }
+    }
+    {% endfor %}
+  }
+
+  let timeout;
+  document.getElementById("ra").addEventListener("input", function() {
+    clearTimeout(timeout);
+    const v = this.value;
+    timeout = setTimeout(function() { updateIconsForDate(v); }, 100)
+  });
+  updateIconsForDate(document.getElementById("ra").value);
+
+  L.Control.Fullscreen = L.Control.extend({
+    options: {
+        position: 'topleft',
+        title: {
+            'false': 'View Fullscreen',
+            'true': 'Exit Fullscreen'
+        }
+    },
+
+    onAdd: function (map) {
+        var container = L.DomUtil.create('div', 'leaflet-control-fullscreen leaflet-bar leaflet-control');
+
+        this.link = L.DomUtil.create('a', 'leaflet-control-fullscreen-button leaflet-bar-part', container);
+        this.link.href = '#';
+        this.link.title = "Toggle Fullscreen";
+
+        this.map = map;
+
+        L.DomEvent.on(this.link, 'click', this._click, this);
+        return container;
+    },
+
+    _click: function (e) {
+        L.DomEvent.stopPropagation(e);
+        L.DomEvent.preventDefault(e);
+        document.getElementById("map-container").classList.toggle("full");
+        this.map.invalidateSize();
+    }
+  });
+
+  mymap.addControl(new L.Control.Fullscreen());
+{% endset %}
+    
+<table class="countytable">
+  {% for county in countyStats %}
+    <tr class="{{ "complete" if county.percentage == 100 }}
+      {{ "started" if (county.percentage > 0 and county.percentage < 50) }}
+      {{ "halfway" if (county.percentage >= 50 and county.percentage < 100) }}
+      {{ "total-on-map" if (county.name == "Total on map") }}
+      {{ "total" if (county.name == "Total") }}"><td>{{ county.name }}</td><td>{{ county.total }}</td><td>{{ county.visited }}</td><td class="percentage">{{ county.percentage }}%</td></tr>
+  {% endfor %}
+</table>
+
+<script>
+  {{ js | jsmin | safe }}
+</script>

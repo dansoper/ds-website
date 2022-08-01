@@ -11,7 +11,7 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 
 module.exports = async function () {
   var auth = await authorize(CREDENTIALS, TOKEN, SCOPES, true);
-  const stations = await getStationCoordsFromSheet(auth, SPREADSHEET_ID, 'Stations!A2:F');
+  const stations = await getStationCoordsFromSheet(auth, SPREADSHEET_ID, 'Stations!A2:G');
   const trips = await getStationTripsFromSheet(auth, SPREADSHEET_ID, 'Actual Record!A1:F', stations);
   return { stations, trips };
 }

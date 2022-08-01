@@ -19,6 +19,7 @@
     "jsdom": "^16.6.0",
     "moment": "^2.29.1",
     "railway-spreadsheet": "github:dansoper/railway-spreadsheet",
+    "terser": "^5.14.2",
     "twitter": "^1.7.1"
   }
 }

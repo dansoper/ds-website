@@ -15,7 +15,7 @@ module.exports = {
     countyStats: data => {
         const stations = data.rail.stations;
         const trips = data.rail.trips;
-        const counties = [];
+        const counties = data.counties.map(c => { return { total: 0, visited: 0, name: c } });;
         let total = 0;
         let visited = 0;
         stations.forEach(station => {
@@ -31,10 +31,28 @@ module.exports = {
                 visited++;
             }
         });
-        counties.push({ total, visited, name: "TOTAL" });
+        counties.push({ total, visited, name: "Total on map" });
+        counties.push({ total: data.countiesNotOnMap.notOnMapCount, visited: 0, name: "Total not on map (England)" });
+        const scot = 359
+        counties.push({ total: scot, visited: 0, name: "Scotland" });
+        const wal = 223;
+        counties.push({ total: wal, visited: 0, name: "Wales" });
+        counties.push({ total: total + data.countiesNotOnMap.notOnMapCount + scot + wal, visited, name: "Total" });
+        
+        
         counties.forEach(county => {
-            county.percentage = Math.round(county.visited / county.total * 10000) / 100;
+            if (county != null) {
+                county.percentage = Math.round(county.visited / county.total * 10000) / 100;
+            }
         });
         return counties;
+    },
+    countiesNotOnMap: data => {
+        const countiesOnMap = data.counties;
+        const allCounties = data.allCounties;
+        const extraCount = data.rail.stations.filter(a => a.county == "Extras").length;
+        const countiesNotOnMap = allCounties.filter(c => countiesOnMap.find(d => d == c.name) == null);
+        const notOnMapCount = countiesNotOnMap.reduce((prev, curr) => prev + curr.hardcodedTotal, 0);
+        return { notOnMapCount: notOnMapCount - extraCount, counties: countiesNotOnMap };
     }
 }
