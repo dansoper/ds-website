@@ -1,0 +1,69 @@
+.timeline {
+    position: relative;
+    margin: 0 auto;
+}
+
+.timeline div {
+    box-sizing: border-box;
+}
+
+.timeline ul {
+    margin: 0;
+    padding: 0;
+}
+
+.timeline ul li {
+    margin-bottom: 8px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.point {
+    width: 20px;
+    height: 20px;
+    background-color: #137785;
+    border-radius: 100%;
+    z-index: 2;
+    border: 3px #333333 solid;
+}
+
+.timeline ul li .content {
+    width: calc(80% - 10px);
+    padding: 0 10px;
+    padding-right: 0;
+}
+
+.timeline ul li .date {
+    width: calc(20% - 10px);
+    padding: 0 10px;
+    padding-left: 0;
+}
+
+.timeline ul li .date span {
+    background-color: #ddd;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+    float: right;
+}
+
+.timeline ul li .content a {
+    display: block;
+    padding: 5px 8px;
+    background-color: #eee;
+    margin-top: 0;
+    margin-right: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    left: 20%; /*calc(20% + 9px);*/
+    background-color: #333333;
+}
