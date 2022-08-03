@@ -1,8 +1,26 @@
 ---
 layout: main
+pageTitle: Welcome
+includeHighslide: true
 eleventyNavigation:
   key: Home
   order: 1
 ---
-<p>Hi</p>
-<a href="readme">link to it</a>
+{% set randomImage = [
+  { src: "images/dan/2019-ely.jpg", alt: "Dan at Ely Cathedral Organ, 2019" },
+  { src: "images/dan/2021-st-edmundsbury.jpg", alt: "Dan at St Edmundsbury Cathedral Organ, 2021" },
+  { src: "images/dan/2022-brandon.jpg", alt: "Dan on a bike ride near Brandon" },
+  { src: "images/dan/2022-derby-road.jpg", alt: "Dan on a bike and train day, at Derby Road (Ipswich)" },
+  { src: "images/dan/2022-elizabeth-line.jpg", alt: "Dan and family on the Elizabeth line" },
+  { src: "images/dan/2022-may-holiday.jpg", alt: "Dan and family on holiday in May 2022" }] | random
+%}
+
+<p class="highlight">{% responsiveImage randomImage.src, randomImage.alt, "float-left", 250 %}<strong>Welcome to my website!</strong></p>
+
+<p>I am a full-time Software Developer, and have worked at <a href="http://www.victoriaforms.co.uk/">Victoria Forms</a> since April 2016.</p>
+<p>As a former Assistant Director of Music at St Edmundsbury and Rochester Cathedrals, I enjoy working with various choirs in my free time, including as organist for The Lynwood Singers and as director of Sanderstead Singers.</p>
+<p>If you&rsquo;d like to read about my transition from Cathedral Music to IT, just put <b>/faqs</b> in the address bar, after the domain.</p>
+<p>This website contains a <strong>Music</strong> and an <strong>IT</strong> section to help categorise the things I want to say. None of it is of any worth, but I put it all here just in case you are interested. More recently, I have added a <strong>Blog</strong> (for my random long-form thoughts) and a section on my project to visit <strong>Stations</strong>.</p>
+<p>I&rsquo;ll try and keep this site up to date. Please let me know if I have failed.</p>
+<p><em>Dan Soper<br /></em><em>August 2022</em></p>
+<small>Website last updated: {% gitLastCommitDate %}</small>

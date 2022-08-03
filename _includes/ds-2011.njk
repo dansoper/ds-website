@@ -35,6 +35,16 @@ stylesheets:
 		</aside>
 		<footer>Copyright © Dan Soper {% year %} | <a href="/contact">Contact</a></footer>
 	</div>
+	{% if includeHighslide == true %}
+		<script src="/lib/highslide/highslide.js"></script>
+		<script>
+			hs.graphicsDir = '/lib/highslide/graphics/';
+			hs.showCredits = false;
+			hs.align = "center";
+			hs.outlineType = "rounded-white";
+		</script>
+	{% endif %}
+
 </body>
 
 </html>

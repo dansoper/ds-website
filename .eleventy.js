@@ -6,6 +6,7 @@ const newwindowlinks = require('./_transforms/newwindowlinks');
 const detailtoggles = require('./_transforms/detailtoggles');
 const highslideImageShortcode = require('./_shortcodes/image');
 const yearShortcode = require('./_shortcodes/year');
+const gitLastCommitDate = require('./_shortcodes/git-date');
 const tweetsfilter = require('./_filters/tweetsfilter');
 const { minify } = require("terser");
 
@@ -32,6 +33,9 @@ module.exports = function (eleventyConfig) {
     });
     eleventyConfig.addFilter("dateObjectToShortDate", function (dateObj) {
         return moment(dateObj).format("ddd Do MMM YYYY");
+    });
+    eleventyConfig.addFilter("dateObjectToShortDateTime", function (dateObj) {
+        return moment(dateObj).format("ddd Do MMM YYYY HH:mm");
     });
     eleventyConfig.addFilter("numberOfDaysSince", function (dateObj, since) {
         if (dateObj == null || dateObj == "") return moment().diff(moment(since, "YYYYMMDD"), "days");
@@ -63,5 +67,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addTransform("detailtoggles", detailtoggles);
 
     eleventyConfig.addNunjucksAsyncShortcode("responsiveImage", highslideImageShortcode);
+    eleventyConfig.addNunjucksAsyncShortcode("gitLastCommitDate", gitLastCommitDate);
     eleventyConfig.addShortcode("year", yearShortcode);
 };

@@ -573,8 +573,36 @@
 		{"startDate":20200306,"time":"12.30pm","title":"Lunchtime Recital","repertoire":"Alain: Litanies\r\nParry: Chorale Prelude on “Rockingham”\r\nLeighton: Rockingham, Paean\r\nBuxtehude: Praeludium in C (BuxWV 137)\r\nStanford: Organ Sonata No 1, 2nd movement (Op. 149)\r\nVaughan Williams: Three Preludes founded on Welsh Hymn Tunes\r\nStanley: Voluntary in F (Op. 7, No 6)\r\nMushel: Toccata","location":"Chelmsford Cathedral","role":"Organ"},
 		{"startDate":20200314,"time":"5pm","title":"Organ Recital (part of Organ Festival)","repertoire":"Alain: Litanies\r\nParry: Chorale Prelude on “Rockingham”\r\nLeighton: Rockingham, Paean\r\nBuxtehude: Praeludium in C (BuxWV 137)\r\nReger: Aus tiefer Not schrei ich zu dir (Op. 67)\r\nBach: Aus tiefer Not schrei ich zu dir (BWV 686)\r\nStanford: Organ Sonata No 1 (Op. 149)\r\nVaughan Williams: Three Preludes founded on Welsh Hymn Tunes\r\nStanley: Voluntary in F (Op. 7, No 6)\r\nMushel: Toccata","location":"St Edmundsbury Cathedral","role":"Organ"},
 
-		{"startDate":20211030,"endDate":20211031,"title":"Choral Services sung by The Lynwood Singers","location":"Bath Abbey","role":"Organ"},
+		{"startDate":20210909,"title":"Lunchtime Recital","repertoire":"Bach: Wachet auf, ruft uns die Stimme (BWV 645)\r\nEdmundson: Vom Himmel Hoch (Toccata-Prelude IV)\r\nManz: Wie schön leuchtet der Morgenstern\r\nC.P.E. Bach: Aus der Tiefe rufe ich\r\nBednall: Meditation on The Passion Chorale\r\nHowells: Saraband for the morning of Easter\r\nLeddington Wright: March on Miles Lane\r\nBach: Fugue in E flat (BWV 552)","location":"St Edmundsbury Cathedral","role":"Organ"},
 
-		{"startDate":20220822,"endDate":20220828,"title":"Choral Services sung by Sanderstead Singers","location":"Truro Cathedral","role":"Director"}
+		{"startDate":20211027,"endDate":20211028,"title":"Choral Services sung by the Gundulf Consort","location":"Canterbury Cathedral","role":"Organ","repertoire":"Ives in D\r\nAshfield: The fair chivalry\r\nHarris: Behold, the tabernacle of God\r\nMoeran in D\r\nBullard: For all thy saints"},
+
+		{"startDate":20211030,"endDate":20211031,"title":"Choral Services sung by The Lynwood Singers","location":"Bath Abbey","role":"Organ","repertoire":"Walmisley in D minor\r\nAshfield: The fair chivalry\r\nStanford in G\r\nIreland: Greater love"},
+
+		{"startDate":20220226,"endDate":20220227,"title":"Choral Services sung by The Lynwood Singers","location":"Bradford Cathedral","role":"Organ","repertoire":"Tomkins Fifth Service\r\nIreland in C (Communion)\r\nHowells in G\r\nBairstow: Though I speak with the tongues of men"},
+
+		{"startDate":20220418,"title":"Choral Services sung by Sanderstead Singers","location":"St Paul's Cathedral","role":"Director","repertoire":"Murrill in E\r\nHandel: Hallelujah Chorus"},
+
+		{"startDate":20220419,"endDate":20220420,"title":"Choral Services sung by the Gundulf Consort","location":"Canterbury Cathedral","role":"Organ","repertoire":"Darke in F\r\nHarris: Most glorious Lord of life\r\nWhitlock in D\r\nWhitlock: He is risen"},
+
+		{"startDate":20220422,"title":"Choral Evensong sung by the Surrey Singers","location":"Canterbury Cathedral","role":"Organ","repertoire":"Brewer in D"},
+
+		{"startDate":20220608,"title":"Lunchtime Recital","repertoire":"Bach: Prelude and Fugue in E flat (BWV 552)\r\nBairstow: Toccata-Prelude on the plain-song ‘Pange Lingua’\r\nKerensa Briggs: Prelude on Pange Lingua\r\nElgar: Allegro maestoso (Sonata in G, op.28)\r\nCouperin: Three movements from ‘Messe pour les Paroisses’, Gloria\r\nDobrinka Tabakova: Sanctus from Orbis Factor","location":"St Michael, Croydon","role":"Organ"},
+
+		{"startDate":20220716,"endDate":20220717,"title":"Choral Services sung by The Lynwood Singers","location":"Worcester Cathedral","role":"Organ","repertoire":"Sumsion in A\r\nSmith: Let the peoples praise you, O God\r\nHaydn: Little organ mass\r\nWatson in E\r\nJackson: Blow ye the trumpet in Zion"},
+
+		{"startDate":20220807,"title":"Choral Services sung by the Gundulf Consort","location":"Rochester Cathedral","role":"Organ","repertoire":"Darke in E (Communion)\r\nNicholson: Tantum ergo\r\nHowells Westminster Service\r\nStanford: The Lord is my shepherd"},
+
+		{"startDate":20220822,"endDate":20220828,"title":"Choral Services sung by Sanderstead Singers","location":"Truro Cathedral","role":"Director","repertoire":"Noble in B minor\r\nBalfour Gardiner: Evening hymn\r\nHarris in A\r\nElgar: The spirit of the Lord\r\nPitoni: Cantate Domino\r\nDarke in E (Communion)\r\nVictoria: O quam gloriosum\r\nHowells in G\r\nHowells: O pray for the peace\r\nNaylor in A\r\nBairstow: Jesu, the very thought of thee\r\nBairstow: I sat down\r\nMartin How: The Shrewsbury Mass\r\nMozart: Ave verum corpus\r\nAlison Willis: Derby Service\r\nStanford: How beauteous are their feet"},
+
+		{"startDate":20221022,"endDate":20221023,"title":"Choral Services sung by The Lynwood Singers","location":"St Albans Cathedral","role":"Organ"},
+
+		{"startDate":20230225,"endDate":20230226,"title":"Choral Services sung by The Lynwood Singers","location":"Derby Cathedral","role":"Organ"},
+
+		{"startDate":20230422,"endDate":20230423,"title":"Choral Services sung by The Lynwood Singers","location":"St Paul's and Guildford Cathedrals","role":"Organ"},
+
+		{"startDate":20231028,"endDate":20231029,"title":"Choral Services sung by The Lynwood Singers","location":"Ely Cathedral","role":"Organ"}
+
+
 	]
 }

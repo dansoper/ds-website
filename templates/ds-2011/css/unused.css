@@ -1,11 +1,7 @@
 /*	Resets
 	------	*/
 
-    ul {
-        padding-left: 20px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
+    
     
     /*article, aside, canvas, figure, figure img, figcaption, hgroup,
     footer, header, nav, section, audio, video {
@@ -38,9 +34,7 @@
     
     
     
-    .highlight {
-        color: #137785;
-    }
+    
     
     .indent {
         padding-left: 10px;	

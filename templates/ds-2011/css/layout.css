@@ -85,8 +85,12 @@ main {
     padding: 10px;
 }
 
-main h1, main h2, main h3, main h4, main p, main section {
+main h1, main h2, main h3, main h4, main p, main section, main ul {
     padding: 5px 0;
+}
+
+main ul {
+    padding-left: 20px;
 }
 
 main section {
@@ -268,6 +272,12 @@ footer a:visited {text-decoration: none}
 footer a:active {text-decoration: none}
 footer a:hover {text-decoration: none; color: #ffffff; }
 
+.sidenote {
+    font-style: italic;
+    padding-left: 8px;
+    border-left: 2px solid black;
+}
+
 /* Within page layout */
 
 .float-right {
@@ -276,5 +286,11 @@ footer a:hover {text-decoration: none; color: #ffffff; }
 }
 .float-left {
     float:left;
-    margin-right: 5px;	
+    margin-right: 10px;	
+}
+
+/* Colours and styles */
+
+.highlight {
+    color: #137785;
 }

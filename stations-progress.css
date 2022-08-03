@@ -69,6 +69,7 @@
 
 .countytable {
   border: dimgrey 1px solid;
+  padding-bottom: 5px;
 }
 .countytable td {
   padding: 0 3px;

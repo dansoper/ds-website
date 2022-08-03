@@ -47,6 +47,34 @@ module.exports = {
         });
         return counties;
     },
+    londonStats: data => {
+        const stations = data.rail.stations.filter(a => a.londonBorough != null);
+        const trips = data.rail.trips;
+        const boroughs = [];
+        let total = 0;
+        let visited = 0;
+        stations.forEach(station => {
+            let borough = boroughs.find(a => a.name == station.londonBorough);
+            if (borough == null) {
+                borough = { total: 0, visited: 0, name: station.londonBorough };
+                boroughs.push(borough);
+            }
+            total++;
+            borough.total++;
+            if (trips.find(a => a.toCode == station.code || a.fromCode == station.code) != null) {
+                borough.visited++;
+                visited++;
+            }
+        });
+        boroughs.push({ total, visited, name: "Total" });
+        
+        boroughs.forEach(borough => {
+            if (borough != null) {
+                borough.percentage = Math.round(borough.visited / borough.total * 10000) / 100;
+            }
+        });
+        return boroughs;
+    },
     countiesNotOnMap: data => {
         const countiesOnMap = data.counties;
         const allCounties = data.allCounties;
