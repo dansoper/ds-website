@@ -11,6 +11,8 @@ const tweetsfilter = require('./_filters/tweetsfilter');
 const { minify } = require("terser");
 
 module.exports = function (eleventyConfig) {
+    eleventyConfig.addGlobalData("layout", "main");
+
     eleventyConfig.addLayoutAlias('main', 'ds-2011');
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
