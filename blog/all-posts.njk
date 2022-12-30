@@ -1,0 +1,11 @@
+---
+override:tags: []
+permalink: blog/posts/
+pageTitle: All Blog Posts
+layout: main
+stylesheets:
+ - templates/ds-2011/css/blog
+---
+
+{% set postslist = collections.blog %}
+{% include "blog-post-list.njk" %}

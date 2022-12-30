@@ -1,0 +1,15 @@
+---
+override:tags: []
+permalink: blog/tags/
+pageTitle: Blog Tags
+layout: main
+stylesheets:
+ - templates/ds-2011/css/blog
+---
+
+<ul class="tags">
+    {% for tag in collections.tagList %}
+    {% set tagUrl %}/blog/tags/{{ tag | slugify }}/{% endset %}
+    <li><a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a></li>
+    {% endfor %}
+</ul>

@@ -30,6 +30,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("dateObjectToYmd", function (dateObj) {
         return moment(dateObj).format("YYYYMMDD");
     });
+    eleventyConfig.addFilter("dateObjectToYmdHyphen", function (dateObj) {
+        return moment(dateObj).format("YYYY-MM-DD");
+    });
     eleventyConfig.addFilter("dateObjectToYm", function (dateObj) {
         return moment(dateObj).format("YYYYMM");
     });
@@ -64,6 +67,21 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addFilter("unique", arr => arr instanceof Array && arr.filter((e, i, arr) => arr.indexOf(e) == i) || arr);
+
+    function filterTagList(tags) {
+        return (tags || []).filter(tag => ["blog"].indexOf(tag) === -1);
+      }
+    
+    eleventyConfig.addFilter("filterTagList", filterTagList)
+
+    // Create an array of all tags
+    eleventyConfig.addCollection("tagList", function(collection) {
+        let tagSet = new Set();
+        collection.getAll().forEach(item => {
+        (item.data.tags || []).forEach(tag => tagSet.add(tag));
+        });
+        return filterTagList([...tagSet]);
+    });
 
     eleventyConfig.addTransform("newwindowlinks", newwindowlinks);
     eleventyConfig.addTransform("detailtoggles", detailtoggles);

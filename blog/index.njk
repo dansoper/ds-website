@@ -1,0 +1,9 @@
+---
+eleventyNavigation:
+  key: Blog
+  order: 3
+permalink: blog/
+override:tags: []
+layout: null
+---
+<!DOCTYPE html><title>Redirecting to the latest post</title><script>location='{{ collections.blog[collections.blog.length-1].url }}';</script>

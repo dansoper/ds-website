@@ -1,0 +1,33 @@
+---
+pageTitle: "A new project: Day 1"
+date: 2020-03-22
+tags:
+ - Development
+ - Angular
+ - Psalms
+---
+
+<p>I&rsquo;ve decided to write up as I progress on a new project. This is something that I&rsquo;ve had in mind for quite a while, but I&rsquo;m not sure it will ever become a product.</p>
+<p>I&rsquo;m writing it up as a way of keeping track for my own sake, but also to give you a glimpse into my thoughts, and the technologies I&rsquo;m using.</p>
+<p>I&rsquo;m not planning to try to teach you anything through this — think of it as just a development journal.</p>
+<h3>The idea</h3>
+<p>One of my first projects was Pointed Psalms (<a href="https://www.pointedpsalms.co.uk/">pointedpsalms.co.uk</a>). No sooner had I finished the first working version of this (in about 2006) did I decide that it required a complete rewrite! This has had a few false starts, and never really got there. A couple of people have logins to this original (and only) system, but it&rsquo;s not very good (the user interface is rubbish, and the way the data is stored has several flaws).</p>
+<p>The closest I got to the “new” version was in Summer 2015 while on holiday in Whitby, but unfortunately that didn&rsquo;t reach completion.</p>
+<p>One of my ideas for the new version was to give the user a way of customising the pointing of a psalm by dragging the barlines around, and that&rsquo;s what I&rsquo;ve decided to work on. For this to work, the system would need to know where all the syllables are. It would need to know if a barline was in a middle of a word so that a hyphen could be added. There are many little things like that that need thinking about.</p>
+<h3>Day 1</h3>
+<p>I&rsquo;m a fan of both <a href="https://angular.io/">Angular</a> and <a href="https://reactjs.org/">React</a>, so the first decision was between those two. After comparing <a href="https://material.angular.io/cdk/drag-drop/overview">drag</a>-<a href="https://react-dnd.github.io/react-dnd/">drop</a> libraries, I decided to go for Angular — because the drag-drop library is part of the official <a href="https://material.angular.io/cdk/categories">Angular CDK</a> so unlikely to fall out of use. In my limited experience, I&rsquo;ve found it easier to keep performance high with Angular than with React.</p>
+<p>So I got myself a blank Angular template, installed <code>@angular/cdk</code> and added the <code>DragDropModule</code> to my <code>AppModule</code>.</p>
+<p>For now, I&rsquo;ve structured the app into two Components: <code>WordsComponent</code> and <code>WordComponent</code>. Already these are clearly badly named: the <code>WordsComponent</code> deals with a line of text. The <code>WordComponent</code> deals with a syllable (this includes any pointing symbols).</p>
+<h3>What it does so far</h3>
+<ul>
+<li>The <code>WordsComponent</code> receives a line of text.</li>
+<li>Then it splits it into words.</li>
+<li>For each word, it checks if there are more than one syllable (for now this is hard-coded), and if so, splits into those syllables.</li>
+<li>Each Syllable has a <code>SyllableType</code> which (for now) can be either a <code>WordStart</code>, <code>WordMiddle</code>, <code>WordEnd</code>, <code>Word</code> or <code>Barline</code>.</li>
+<li>We just put a single barline at the end of each line. Obviously in the future, we&rsquo;ll need to add the correct number of barlines, and try to guess the best place for them.</li>
+</ul>
+<p>Depending on the <code>SyllableType</code> (and depending on the type of previous and next syllables), the <code>WordComponent</code> adds spaces or hyphens.</p>
+<p>Using the <code>DragDropModule</code>, we make each <code>WordComponent</code> a drag item (<code>cdkDrag</code>), but only the <code>Barline</code> type is draggable. You can drag the barline around, and when you let go, the <code>drop()</code> function is called. In that, we re-arrange the array and this recalculates whether or not spaces/hyphens should be shown.</p>
+<p>That&rsquo;s where I am. For now, I just hard-coded in one verse of Psalm 122. Have a look and play, but don't get too excited just yet.</p>
+<p><img src="images/blogs/2020/psalm-pointer-day-1.png" alt="" /></p>
+<p><a href="https://stackblitz.com/github/dansoper/psalm-pointer/tree/1f316e67d77faa1c0b586b23f290c7b0e0e389d1">https://stackblitz.com/github/dansoper/psalm-pointer/tree/1f316e67d77faa1c0b586b23f290c7b0e0e389d1</a></p>

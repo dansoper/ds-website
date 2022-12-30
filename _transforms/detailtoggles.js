@@ -20,7 +20,7 @@ module.exports = function (rawContent, outputPath) {
         }
     }
 
-    if (!rawContent.includes("src=\"/lib/slideupdown/slideupdown.js\"")) {
+    if (matchCount > 0 && !rawContent.includes("src=\"/lib/slideupdown/slideupdown.js\"")) {
         rawContent = rawContent.replace("</body>", `<script src=\"/lib/slideupdown/slideupdown.js\"></script></body>`);
     }
     rawContent = rawContent.replace("</body>", `<script>${growingScript}</script></body>`);

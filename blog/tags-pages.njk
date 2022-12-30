@@ -1,0 +1,19 @@
+---
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tag
+  addAllPagesToCollections: true
+permalink: /blog/tags/{{ tag | slugify }}/
+override:tags: []
+layout: main
+eleventyComputed:
+  pageTitle: Tagged “{{ tag }}”
+stylesheets:
+ - templates/ds-2011/css/blog
+---
+
+{% set postslist = collections[ tag ] %}
+{% include "blog-post-list.njk" %}
+
+<p>See <a href="{{ '/blog/tags/' | url }}">all tags</a>.</p>
