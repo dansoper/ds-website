@@ -466,7 +466,7 @@
 		{"startDate":20140104,"endDate":20140105,"title":"Choral Services sung by The Lynwood Singers","repertoire":"Aston in F\r\nPeeters: Missa Festiva\r\nHowells in G\r\nMendelssohn: There shall a star","location":"St Albans Cathedral","role":"Organ"},
 		{"startDate":20140315,"time":"7pm","title":"\"Mixing their Music\" concert with Chelmsford, Ely and St Edmundsbury Cathedral Choristers","location":"Ely Cathedral","role":"Organ Accompanist (small part)"},
 		{"startDate":20140329,"time":"5.30pm","title":"Choral Evensong attended by the Archbishop of Canterbury to celebrate the Centenary of the Diocese","repertoire":"Including a World Premiere of the composition competition winner, Janet Wheeler's 'The Martyrdom of St Edmund'","location":"St Edmundsbury Cathedral","role":"Organ"},
-		{"startDate":20140405,"title":"Marriage to Katherine Beddus","repertoire":"(<a href=\"http://katherine.and.dansoper.co.uk\">more details&lt;/a&gt;)"},
+		{"startDate":20140405,"title":"Marriage to Katherine Beddus","repertoire":"(<a href=\"/wedding\">more details</a>)"},
 		{"startDate":20140421,"title":"Choral Evensong sung by Sanderstead Singers","repertoire":"Howells in G\r\nStanford: Ye choirs of new Jerusalem","location":"St Paul's Cathedral","role":"Organ"},
 		{"startDate":20140518,"time":"5pm","title":"Cathedral Choir Concert for the Bury St Edmunds Festival","location":"St Edmundsbury Cathedral","role":"Organ Accompanist"},
 		{"startDate":20140524,"endDate":20140531,"title":"St Edmundsbury Cathedral Choir Tour to Germany","role":"Organ"},
