@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="/templates/wedding/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+	<link rel="stylesheet" media="all" href="/templates/wedding/css/style.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<title>{% if pageTitle %}{{ pageTitle }} - Dan Soper{% else %}Dan Soper{% endif %}</title>
+</head>
+
+<body>
+	<div id="content">
+		<div id="masthead">
+			<img id="masthead-name" src="/templates/wedding/images/ksb.png" alt="Katherine Beddus" />
+			<img id="masthead-face" src="/templates/wedding/images/mastheadright.png" alt="Dan Soper" />
+		</div>
+		<div id="mainsection">
+			<nav>
+				<ul class="nav menu">
+					<li><a href="/wedding">Home</a></li>
+					<li><a href="/wedding/timetable-details">Timetable &amp; Details</a></li>
+					<li><a href="/wedding/accommodation">Where to stay</a></li>
+					<li><a href="/wedding/jukebox">Jukebox</a></li>
+					<li><a href="/wedding/photos">Photos</a></li>
+					<li><a href="/wedding/wedding-party">The Wedding Party</a></li>
+					<li><a href="/wedding/companies">Companies</a></li>
+				</ul>
+			</nav>
+			<article>
+				{% if pageTitle %}<h2>{{ pageTitle }}</h2>{% endif %}
+				{{ content | safe }}
+			</article>
+			<aside>
+			</aside>
+		</div>
+		<footer></footer>
+
+</body>
+
+</html>

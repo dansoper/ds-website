@@ -1,0 +1,178 @@
+---
+layout: wedding
+pageTitle: Where to stay
+---
+
+<p>Below is a map with hotels and B&amp;Bs in the area, as well as the Cathedral and Athenaeum. &nbsp;We've tried to be as complete as possible, but there may be some missing: let us know if you know of a good one that's missing. &nbsp;From the long list below, we have experience of (and can recommend) the Chantry Hotel and Best Western; if you have the budget for it, The Angel is certainly worth it, especially considering how close it is.</p>
+
+<div id="map_canvas" style="height:400px; float:right;" class="fullcontentwidth"></div>
+
+<table border="0" id="schedule">
+    {% for venue in venues %}
+        {% if venue.header %}
+            <tr><td><h3>{{ venue.title }}</h3></td></tr>
+        {% else %}
+            <tr class="venue venuehighlight{{ loop.index }}"><td>{{ venue.title }}</td></tr>
+        {% endif %}
+    {% endfor %}
+</table>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBh8xBMULA6_XAzrsumN74yedu8c0XnTao"></script>
+
+{# Just copied from the PHP version. I bet I could make this better, but the wedding was 8.5 years ago... #}
+
+<script>
+    var mapcenter = new google.maps.LatLng(52.243908000000, 0.716439000000);
+	var mapzoom = 15;
+	var map;
+	var infowindow = new google.maps.InfoWindow({
+		content: ''
+	});
+    google.maps.event.addListener(infowindow, 'closeclick', function() {
+        unhighlightall();
+    });
+
+
+    function HomeControl(controlDiv, map) {
+        // Set CSS styles for the DIV containing the control
+        // Setting padding to 5 px will offset the control
+        // from the edge of the map
+        controlDiv.style.padding = '5px';
+    
+        // Set CSS for the control border
+        var controlUI = document.createElement('DIV');
+        controlUI.style.backgroundColor = 'white';
+        controlUI.style.borderStyle = 'solid';
+        controlUI.style.borderWidth = '2px';
+        controlUI.style.cursor = 'pointer';
+        controlUI.style.textAlign = 'center';
+        controlUI.title = 'Click to set the map to Home';
+        controlDiv.appendChild(controlUI);
+    
+        // Set CSS for the control interior
+        var controlText = document.createElement('DIV');
+        controlText.style.fontFamily = 'Arial,sans-serif';
+        controlText.style.fontSize = '14px';
+        controlText.style.paddingLeft = '4px';
+        controlText.style.paddingRight = '4px';
+        controlText.innerHTML = 'Town Centre';
+        controlUI.appendChild(controlText);
+    
+        // Setup the click event listeners: simply set the map to Chicago
+        controlUI.addEventListener('click', function() {
+            map.setCenter(mapcenter);
+            map.setZoom(mapzoom);
+            infowindow.close();
+            unhighlightall();
+        });
+    }
+
+    function unhighlightall() {
+        var els = document.getElementsByClassName("venhighlight");
+        for (i = 0; i < els.length; i++) {
+            els[i].classList.remove("venhighlight");
+        }
+    }
+
+    // GLOBAL VENUE STUFF
+    {% for venue in venues %}
+        {% if not venue.header %}
+            var venuemarker{{ loop.index }};
+            var venuecontent{{ loop.index }} = "<p><b>{{ venue.title }}</b><br /><a target=\"_blank\" href=\"{{ venue.address }}\">{{ venue.address }}</a></p>";
+
+            function highlight{{ loop.index }}() {
+                unhighlightall();
+                map.setZoom(16);
+                infowindow.setOptions({
+                    content: venuecontent{{ loop.index }}
+                });
+                infowindow.open(map, venuemarker{{ loop.index }});
+                var els = document.getElementsByClassName("venuehighlight{{ loop.index }}");
+                for (i = 0; i < els.length; i++) {
+                    els[i].classList.add("venhighlight");
+                }
+            }
+        {% endif %}
+    {% endfor %}
+
+    function initialize() {
+		var myOptions = {
+		  	zoom: mapzoom,
+		  	center: mapcenter,
+		  	mapTypeId: google.maps.MapTypeId.HYBRID
+		};
+		map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+
+        // WEDDING MARKER
+        var weddingcontent = '<p><b>St Edmundsbury Cathedral</b><br />Wedding Venue</p>';
+        function weddinghighlight() {
+            map.setZoom(16);
+            infowindow.setOptions({
+                content: weddingcontent
+            });
+            infowindow.open(map, weddingmarker);
+        }
+        weddingmarker = new google.maps.Marker({
+                position: new google.maps.LatLng(52.243923, 0.717000),
+                map: map,
+                icon: '/images/wedding/w-icon.png'
+        });
+        google.maps.event.addListener(weddingmarker, 'click', function() {
+            weddinghighlight();
+        });
+			
+        // RECEPTION MARKER
+        var receptioncontent = '<p><b>The Athenaeum</b><br />Reception Venue</p>';
+
+        function receptionhighlight() {
+            map.setZoom(16);
+            infowindow.setOptions({
+                content: receptioncontent
+            });
+            infowindow.open(map, receptionmarker);
+        }
+        receptionmarker = new google.maps.Marker({
+                position: new google.maps.LatLng(52.244202, 0.716142),
+                map: map,
+                icon: '/images/wedding/r-icon.png'
+        });
+        google.maps.event.addListener(receptionmarker, 'click', function() {
+            receptionhighlight();
+        });
+
+        // VENUES
+
+        {% for venue in venues %}
+            {% if not venue.header %}
+                venuemarker{{ loop.index }} = new google.maps.Marker({
+					position: new google.maps.LatLng({{ venue.lat }}, {{ venue.lng }}),
+					map: map,
+					icon: '/images/wedding/{{ "b" if venue.bandb else "h" }}-icon.png'
+				});
+		 		google.maps.event.addListener(venuemarker{{ loop.index }}, 'click', function() {
+					highlight{{ loop.index }}();
+				});
+		
+                var els = document.getElementById("schedule").getElementsByClassName("venuehighlight{{ loop.index }}");
+                for (i = 0; i < els.length; els++) {
+                    els[i].addEventListener("click", function() {
+                        unhighlightall();
+						highlight{{ loop.index }}();
+                    });
+                }
+            {% endif %}
+        {% endfor %}
+
+        // Create the DIV to hold the control and call the HomeControl() constructor
+        // passing in this DIV.
+        var homeControlDiv = document.createElement('DIV');
+        var homeControl = new HomeControl(homeControlDiv, map);
+    
+        homeControlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(homeControlDiv);
+
+    }
+
+    initialize(); 
+
+</script>

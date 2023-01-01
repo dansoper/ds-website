@@ -1,0 +1,477 @@
+/*	Less Framework 4
+	http://lessframework.com
+	by Joni Korpi
+	License: http://creativecommons.org/licenses/MIT/	*/
+
+
+/*	Resets
+	------	*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
+img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figure, figcaption, hgroup, 
+menu, footer, header, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+	display: block;
+}
+
+a img {border: 0;}
+
+td, tr, table {
+	vertical-align: top;	
+}
+
+table.rowspacing tr td {
+	padding-bottom: 10px;	
+}
+td.fixcol {
+	width: 10px;	
+}
+
+
+/*	Typography presets
+	------------------	*/
+
+body {
+	font: 17px/24px Book Antiqua, Palatino, Constantia, "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.small, small {
+	font-size: 13px;
+	line-height: 18px;
+}
+
+ul.small {
+	font-size: 17px;
+	line-height: 24px;	
+}
+
+.lesslinespacing {
+	line-height: 120%;	
+}
+
+.hanginglines {
+	padding-left: 10px;
+}
+.hanginglines p {
+	text-indent: -10px;	
+}
+
+a { color: #421C52; }
+a:link {text-decoration: underline}
+a:visited {text-decoration: underline}
+a:active {text-decoration: underline}
+a:hover {text-decoration: none; color: #BDAEC6;}
+
+nav a { color: #ffffff; display: block; transition: all 0.1s; }
+nav a:link {text-decoration: none}
+nav a:visited {text-decoration: none}
+nav a:active {text-decoration: none}
+nav a:hover {text-decoration: none; color: #BDAEC6; margin-left: 10px; }
+
+footer a { color: #421C52; }
+footer a:link {text-decoration: none}
+footer a:visited {text-decoration: none}
+footer a:active {text-decoration: none}
+footer a:hover {text-decoration: none; color: #ffffff; }
+
+article h1 {
+	font-size: 40px;
+	line-height: 45px;	
+	padding-bottom: 10px;
+	color: #515151;
+}
+
+article h2 {
+	font-size: 28px;
+	line-height: 40px;	
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #515151;
+}
+
+article h3 {
+	font-size: 20px;
+	line-height: 22px;	
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #515151;
+}
+
+article p {
+	padding-top: 5px;
+	padding-bottom: 5px;	
+}
+
+.highlight {
+	color: #C3C3E5;
+}
+
+.venhighlight {
+	background: #C3C3E5;
+
+}
+
+#schedule .venue {
+	color: #333;
+	transition: color 10ms;
+}
+#schedule .venue:hover {
+	color: #BDAEC6;
+	transition: color 200ms;
+}
+
+.indent {
+	padding-left: 10px;	
+}
+
+nav li li {
+	padding-left: 15px;
+}
+
+.TDB-tweet-container, aside p {
+	font-size: 0.9em;	
+}
+aside .newsflashaside {
+	padding-top:10px;	
+}
+
+.floatright {
+	float:right;
+	margin-left: 5px;	
+}
+.floatleft {
+	float:left;
+	margin-right: 5px;	
+}
+
+input[type="radio"] {
+	margin-top: 6px !important;
+	margin-right: 10px !important; 	
+}
+
+
+
+
+
+
+
+/*		Default Layout: 992px. 
+		Gutters: 24px.
+		Outer margins: 48px.
+		Leftover space for scrollbars @1024px: 32px.
+-------------------------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8      9      10
+px      68    160    252    344    436    528    620    712    804    896    */
+
+body {
+	padding: 72px 48px 84px;
+	background: rgb(232,232,232);
+	color: rgb(60,60,60);
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
+#content {
+	margin: 0 auto;
+	width: 896px;
+}
+
+#masthead {
+	height: 150px;
+	position: relative;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-color: #BDAEC6;
+}
+#masthead img {
+	display:block;	
+}
+
+#masthead #masthead-face {
+	width: 458px;
+	height: 136px;
+	position:absolute;
+	right:0;
+	bottom: 0;
+}
+#masthead #masthead-name {
+	width: 123px;
+	height: 136px;
+	position: absolute;
+	left:0;
+	bottom: 0;
+}
+
+#mainsection {
+	margin-top: 20px;
+	margin-bottom: 10px;	
+	float: left;
+	padding:0;
+	background: url(../images/bg.gif);
+}
+
+nav {
+	width: 180px;	
+	float: left;
+	background-color: #421C52;
+	margin-top: -10px;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	border-top-left-radius: 10px;
+	padding: 10px;
+	color: #ffffff;
+}
+
+nav ul, nav li {
+	list-style-type: none;	
+}
+
+article {
+	background-color: #ffffff;
+	width: 494px;
+	float: left;
+	margin-left: 10px;
+	margin-top: -10px;	
+	border: 1px solid #732C7B;
+	padding: 10px;
+}
+.fullcontentwidth {
+	width: 494px;	
+}
+aside {
+	background-color: #C3C3E5;
+	width: 140px;
+	float: left;
+	margin-left: 10px;	
+	margin-top: -10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-rightleft: 10px;
+	border-top-right-radius: 10px;
+	padding: 10px;
+}
+
+footer {
+	position: relative;
+	margin-top: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	-moz-border-radius-bottomright: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background-color: #BDAEC6;
+	clear: left;
+	padding: 10px;
+	font-size: 80%;
+}
+.toshrink {
+	width: 494px !important;	
+}
+
+
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	
+	body {
+		padding: 48px 28px 60px;
+	}
+	
+	#content {
+		width: 712px;
+	}
+	
+	#masthead {
+		width: 712px;
+	}
+	
+	article {
+		width: 480px;	
+		
+		-webkit-border-top-right-radius: 10px;
+		-moz-border-radius-topright: 10px;
+		border-top-right-radius: 10px;
+		
+	}
+	.fullcontentwidth {
+		width: 480px;	
+	}	
+	
+	aside {
+		width: 692px;
+		margin-left: 0px;
+		margin-top: 0px;
+		border-top: 10px solid #E8E8E8;
+		border-radius: 0px;
+		-webkit-border-radius: 0px;
+		-moz-border-radius: 0px;
+	}
+	
+	.toshrink {
+		width: 480px !important;	
+	}
+}
+
+
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+
+@media only screen and (max-width: 767px) {
+	
+	body {
+		padding: 5px 5px 5px;
+	}
+	
+	#content {
+		width: 310px;
+	}
+	
+	#masthead {
+		width: 310px;
+		height: 80px;
+	}
+	#masthead #masthead-face {
+		width: 240px;
+		height: 71px;
+	}
+	#masthead #masthead-name {
+		width: 64px;	
+		height: 71px;
+	}
+	
+	
+	#mainsection {
+		background: none;	
+	}
+	
+	img.big {
+		width: 288px;
+		height: auto;	
+	}
+	
+	nav {
+		width: 290px;	
+		-webkit-border-top-right-radius: 10px;
+		-moz-border-radius-topright: 10px;
+		border-top-right-radius: 10px;
+		
+	}
+	article {
+		width: 288px;
+		margin-top: 10px;
+		margin-left: 0px;
+			
+	}
+	.fullcontentwidth {
+		width: 288px;	
+	}
+	aside {
+		width: 290px;
+		-webkit-border-radius: 0px;
+		-moz-border-radius: 0px;
+		border-radius: 0px;	
+		margin-top: 10px;
+		margin-left: 0px;
+	}
+	textarea {
+		width: 269px;	
+	}
+	.toshrink {
+		width: 288px !important;	
+	}
+	
+	
+	
+}
+
+
+
+/*		Wide Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+	body {
+		padding: 5px 5px 5px;
+	}
+	
+	#content {
+		width: 470px;	
+	}
+	
+	#masthead {
+		width: 470px;
+	}
+	
+	#masthead #masthead-face {
+		width: 240px;
+		height: 71px;
+	}
+	#masthead #masthead-name {
+		
+	}
+	
+	nav {
+		width: 450px;	
+	}
+	article {
+		width: 448px;	
+	}
+	.fullcontentwidth {
+		width: 448px;	
+	}
+	aside {
+		width: 450px;	
+	}
+	.toshrink {
+		width: 448px !important;	
+	}
+	
+	
+}
+
+
+/*	Retina media query.
+	Overrides styles for devices with a 
+	device-pixel-ratio of 2+, such as iPhone 4.
+-----------------------------------------------    */
+
+@media 
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (min-device-pixel-ratio: 2) {
+	
+	body {
+	
+	}
+	
+}

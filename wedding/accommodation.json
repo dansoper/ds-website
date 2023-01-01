@@ -1,0 +1,29 @@
+{
+    "venues": [
+        {"title":"Walkable from Cathedral \/ Athenaeum","header":true},
+        {"title":"The Chantry Hotel (£78-£132)","address":"http:\/\/www.chantryhotel.com\/","lat":"52.241934000000","lng":"0.718284000000"},
+        {"title":"The Angel Hotel (£85-£375)","address":"http:\/\/www.theangel.co.uk","lat":"52.244634000000","lng":"0.715743000000"},
+        {"title":"The Fox Inn (£119-£139 few rooms available)","address":"https:\/\/www.oldenglishinns.co.uk\/our-locations\/the-fox-inn","lat":"52.246272000000","lng":"0.720102000000","bandb":true},
+        {"title":"The Abbey Hotel (£83-£90)","address":"http:\/\/www.abbeyhotel.co.uk","lat":"52.238626000000","lng":"0.721966000000"},
+        {"title":"Regency House Hotel (£90+?)","address":"http:\/\/www.hotelburystedmunds.co.uk\/","lat":"52.246330000000","lng":"0.715300000000"},
+        {"title":"B&Bs","header":true},
+        {"title":"The Dog and Partridge Pub (9 rooms, £70-£80)","address":"http:\/\/www.laterooms.com\/en\/p2400\/hotel-reservations\/90446_dog-and-partridge-bury-st-edmunds.aspx","lat":"52.241655000000","lng":"0.717028000000","bandb":true},
+        {"title":"Northbury House (3 rooms, £65-£90)","address":"http:\/\/www.northburyhouse.co.uk\/","lat":"52.246577000000","lng":"0.716926000000","bandb":true},
+        {"title":"The Bushel Pub (£89.95)","address":"http:\/\/www.laterooms.com\/en\/hotel-reservations\/261960_the-bushel-bury-st-edmunds.aspx","lat":"52.248842000000","lng":"0.712120000000","bandb":true},
+        {"title":"Number 6 Orchard Street (3 rooms, £45-£55)","address":"http:\/\/number6orchardstreet.site40.net\/HOME.html","lat":"52.248137000000","lng":"0.712938000000","bandb":true},
+        {"title":"The Old Cannon Brewery (Pub) (£90-£120)","address":"http:\/\/www.oldcannonbrewery.co.uk\/stay\/","lat":"52.249727000000","lng":"0.714633000000","bandb":true},
+        {"title":"Ounce House (£90-£130)","address":"http:\/\/www.ouncehouse.co.uk\/","lat":"52.247654000000","lng":"0.716619000000","bandb":true},
+        {"title":"Sycamore House (2 rooms, £60-£80)","address":"http:\/\/www.sycamorehouse.net\/","lat":"52.249408000000","lng":"0.716093000000","bandb":true},
+        {"title":"83 Whiting Street (4 rooms, £45-£70)","address":"http:\/\/www.83whitingstreetbandb.co.uk\/","lat":"52.243938000000","lng":"0.712903000000","bandb":true},
+        {"title":"The Black Boy Pub (5 rooms, £40-£80)","address":"http:\/\/www.theblackboypublichouse.co.uk\/","lat":"52.242277000000","lng":"0.712254000000","bandb":true},
+        {"title":"Long walk \/ short drive","header":true},
+        {"title":"BEST WESTERN Priory Hotel (£60-£76)","address":"http:\/\/www.bestwestern.co.uk\/hotels\/priory-hotel-bury-st-edmunds-83266\/hotel-info\/default.aspx","lat":"52.260881000000","lng":"0.711142000000"},
+        {"title":"Quality Hotel (£85)","address":"http:\/\/www.akkeronhotels.com\/Hotels\/Central-and-Eastern-England\/Quality-Hotel-Bury-St-Edmunds","lat":"52.240952000000","lng":"0.733091000000"},
+        {"title":"Further afield","header":true},
+        {"title":"The Suffolk Golf and Spa Hotel (£62-£89)","lat":"52.276609000000","lng":"0.701988000000"},
+        {"title":"Cheaper but further","header":true},
+        {"title":"Travelodge Ipswich (Stowmarket) (from £31) 18 mins","address":"http:\/\/www.travelodge.co.uk\/hotels\/39\/Ipswich-Stowmarket-hotel","lat":"52.213810000000","lng":"0.965585000000"},
+        {"title":"Travelodge Barton Mills (from £31) 23 mins","address":"http:\/\/www.travelodge.co.uk\/hotels\/6\/Barton-Mills-hotel","lat":"52.337867000000","lng":"0.536817000000"}
+        
+    ]
+}
