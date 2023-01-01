@@ -10,9 +10,9 @@ module.exports = function (rawContent, outputPath) {
             matchCount++;
             let newHtml = ` <a href="#" id="dt_title_${matchCount}" class="small">`;
             newHtml += `(more)`;
-            newHtml += `</a><div id="vs_${matchCount}"><div>`;
+            newHtml += `</a><span id="vs_${matchCount}" style="display:none;"><span>`;
             newHtml += matches[i][1];
-            newHtml += "</div></div>";
+            newHtml += "</span></span>";
 
             rawContent = rawContent.replace(matches[i][0], newHtml);
 
