@@ -3,6 +3,44 @@ eleventyNavigation:
   key: Compositions etc.
   parent: Music
   order: 2
+pageTitle: Compositions & Arrangements
+stylesheets:
+ - music/compositions
 ---
 
-compositions
+<p>Listed on this page are several of my compositions, as well as Hymn arrangements and music I&rsquo;ve typeset. Anything on this page may be freely downloaded and reproduced for performance. I&rsquo;d be glad to know of any performances. Some of the compositions here haven&rsquo;t ever been performed (for example Composition Competition entries). If there&rsquo;s anything you would like to perform which is listed but without a PDF, let me know and I&rsquo;ll see if I can get it.</p>
+<h2>Compositions</h2>
+<h3>Choral</h3>
+<div class="composition-list">
+{% for composition in choral %}
+  {% include '../_widgets/compositions/composition.njk' %}
+{% endfor %}
+</div>
+
+<h3>Other</h3>
+<div class="composition-list">
+{% for composition in other %}
+  {% include '../_widgets/compositions/composition.njk' %}
+{% endfor %}
+</div>
+
+<h2>Arrangements</h2>
+<div class="composition-list">
+{% for composition in arrangements %}
+  {% include '../_widgets/compositions/composition.njk' %}
+{% endfor %}
+</div>
+
+<h2>Hymn Arrangements / Descants / Last-verse Harmonies</h2>
+<div class="composition-list">
+{% for composition in hymns %}
+  {% include '../_widgets/compositions/composition.njk' %}
+{% endfor %}
+</div>
+
+<h2>Editions / Typesetting</h2>
+<div class="composition-list">
+{% for composition in editions %}
+  {% include '../_widgets/compositions/composition.njk' %}
+{% endfor %}
+</div>

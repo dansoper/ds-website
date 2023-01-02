@@ -1,0 +1,10 @@
+<p><span class="highlight">{{ composition.title }}</span>{% if composition.voicing %}&nbsp;({{ composition.voicing }}){% endif %}{% if composition.subtitle %}&nbsp;{{ composition.subtitle }}{% endif %} <span class="small">({{ composition.date }})</span>
+  {% if composition.url %}
+  &nbsp;<a href="/images/downloads/{{ composition.url }}"><img src="/images/icons/file-pdf.png" alt="File PDF" width="18" height="18" /></a>
+  {% endif %}
+  {% if composition.extraInfo %}
+    {dt_more_details}
+      <span class="small">{{ composition.extraInfo | safe }}</span>
+    {dt_end}
+  {% endif %}
+</p>

@@ -1,0 +1,434 @@
+{
+    "choral": [
+        {
+            "title": "A cry in the night",
+            "voicing": "SATB + Organ",
+            "date": "August-September 2013",
+            "url": "2013_A_cry_in_the_night.pdf",
+            "extraInfo": "Written for The Times Carol Composition Competition 2013<br>Words by&nbsp;<a href=\"http://www.houndofheaven.co.uk\">Neil Thompson</a>"
+        },
+        {
+            "title": "Before Action",
+            "voicing": "SATB + Organ",
+            "date": "August 2018",
+            "url": "2018%20Before%20Action.pdf",
+            "extraInfo": "Written for the R A Vestey Trust and St Edmundsbury Cathedral Composition Competition"
+        },
+        {
+            "title": "Blessed are all that fear the Lord",
+            "voicing": "SSAATBB",
+            "date": "January 2005",
+            "url": "2005%20Psalm%20128.pdf",
+            "extraInfo": "Written for Part II of degree, \"Free Composition\"<br>Words: Psalm 128"
+        },
+        {
+            "title": "Blessed be that maid Marie",
+            "voicing": "SSAATTBB",
+            "date": "April 2012",
+            "url": "2012_Blessed_be_that_maid.pdf",
+            "extraInfo": "Written for the Choir &amp; Organ Composition Competition 2012. First performed by St Edmundsbury Cathedral Choir in December 2015 and recorded by them in 2017.<br>Words: Old English"
+        },
+        {
+            "title": "Chants (various)",
+            "voicing": "SATB",
+            "date": "2000-2001",
+            "extraInfo": "Two of these chants are published in <a href=\"https://www.fagus-music.com/composers/CANTICA.html\" rel=\"noopener noreferrer\">Cantica Nova 2</a><br><span class=unsmall>A flat major</span> (March 2000)&nbsp;<a href=\"/images/downloads/Chant%20A%20flat%20major.png\"><img src=\"/images/icons/file-png.png\" alt=\"File PNG\" width=\"18\" height=\"18\" /></a><br><span class=unsmall>A minor</span> (March 2000)&nbsp;<a href=\"/images/downloads/Chant%20A%20minor.png\"><img src=\"/images/icons/file-png.png\" alt=\"File PNG\" width=\"18\" height=\"18\" /></a><br><span class=unsmall>C minor</span> (March 2000)&nbsp;<a href=\"/images/downloads/Chant%20C%20minor.png\"><img src=\"/images/icons/file-png.png\" alt=\"File PNG\" width=\"18\" height=\"18\" /></a><br><span class=unsmall>E flat major</span> (March 2001)&nbsp;<a href=\"/images/downloads/Chant%20E%20flat.png\"><img src=\"/images/icons/file-png.png\" alt=\"File PNG\" width=\"18\" height=\"18\" /></a>"
+        },
+        {
+            "title": "Coldness and Stone",
+            "voicing": "SATB",
+            "date": "July 2011",
+            "url": "2011%20Coldness%20and%20Stone.pdf",
+            "extraInfo": "Words by&nbsp;<a href=\"http://www.houndofheaven.co.uk\">Neil Thompson</a>"
+        },
+        {
+            "title": "God of all creation",
+            "voicing": "SAMen + Org",
+            "date": "March 2021",
+            "url": "2021-god-of-all-creation.pdf",
+            "extraInfo": "Written for the RSCM Music Sunday Composition Competition."
+        },
+        {
+            "title": "How beautiful upon the mountains",
+            "voicing": "SATB",
+            "date": "April 1997",
+            "extraInfo": "Written for ATB on Choir Tour in Malaysia; expanded to SATB for GCSE."
+        },
+        {
+            "title": "Hymn Tune: Christ in Glory",
+            "date": "December 2008",
+            "url": "2008%20Hymn%20Christ%20in%20Glory.pdf",
+            "extraInfo": "Written for <a href=\"http://www.houndofheaven.co.uk/item-2\">Hid within our daily living</a> by&nbsp;<a href=\"http://www.houndofheaven.co.uk\">Neil Thompson</a>. Never presented, nor performed."
+        },
+        {
+            "title": "Hymn Tune: Christmas with Christ",
+            "date": "December 2009",
+            "url": "2009%20CHRISTMAS%20CAROL.pdf",
+            "extraInfo": "Words by&nbsp;<a href=\"http://www.houndofheaven.co.uk\">Neil Thompson</a>."
+        },
+        {
+            "title": "Hymn Tune: Salvation's Song",
+            "date": "September 2011",
+            "url": "2011%20Hymn%20Salvation's%20Song%20Tune%20only.pdf",
+            "extraInfo": "Written for RSCM Hymn Tune Composition Award 2011."
+        },
+        {
+            "title": "Magnificat and Nunc Dimittis (Fauxbourdons)",
+            "voicing": "SSA + Organ",
+            "date": "December 2012",
+            "url": "2012%20Fauxbourdons.pdf",
+            "extraInfo": "Written for the St Edmundsbury Singers. First performed March 2013."
+        },
+        {
+            "title": "Matin Responsory",
+            "voicing": "SATB (+ div, + 3 S solo)",
+            "date": "August 2013",
+            "url": "2013_Matin_Responsory.pdf",
+            "extraInfo": "Written for Lincoln Cathedral Advent Competition 2013. With hints of the traditional Sarum Plainsong."
+        },
+        {
+            "title": "Now the green blade riseth",
+            "voicing": "SSAATB + S + Org",
+            "date": "February 2003",
+            "extraInfo": "Written for Katherine Beddus, on her 19th Birthday. Performed three times at Corpus. It's got a good tune, but the third verse and the ending needs a bit of work: there's a bit too much whole-tone/augmented chord experimentation..."
+        },
+        {
+            "title": "Omnes amici mei",
+            "voicing": "SATB",
+            "date": "February 2019",
+            "url": "2019%20Omnes%20amici%20mei.pdf",
+            "extraInfo": "Written for the Westminster Cathedral Composition Competition"
+        },
+        {
+            "title": "Reproaches",
+            "voicing": "ATB",
+            "date": "March 2021",
+            "url": "2021-Reproaches.pdf",
+            "extraInfo": "Written at a time when it looked like only three singers would be allowed on Good Friday. Also available: a <a href=\"images/downloads/2021-Reproaches-Tablet.pdf\">Tablet edition</a> with it fully written out."
+        },
+        {
+            "title": "Reproaches",
+            "voicing": "SATB",
+            "date": "March 2022",
+            "url": "2022-Reproaches-SATB.pdf"
+        },
+        {
+            "title": "Requiem Aeternam",
+            "voicing": "SATBSATB",
+            "date": "February 2005",
+            "extraInfo": "Simple harmonised arrangement of Mode VI, as in NEH. Performed at a few funerals at Corpus."
+        },
+        {
+            "title": "Saepe Expugnaverunt",
+            "voicing": "SSAATTBB + Organ",
+            "date": "November 2004",
+            "extraInfo": "A setting (in English) of Psalm 129. Part of a set of three, including \"Blessed are all that fear the Lord\". This setting is loosely based on a Plainsong Psalm tone, with a fair amount of whole-tone harmony."
+        },
+        {
+            "title": "The First Nowell",
+            "voicing": "SATB (with some divisi) + Organ",
+            "date": "September/October 2017",
+            "url": "2017_The_first_nowell.pdf",
+            "extraInfo": "Written for the Leeds Philharmonic Christmas Carol Competition (commended)."
+        },
+        {
+            "title": "The Good Friday Passion",
+            "voicing": "SSAATB + soloists",
+            "date": "March 2011 and 2014",
+            "url": "2022-Passion.pdf",
+            "extraInfo": "Written for Rochester Cathedral Choir and performed there annually on Good Friday from 2011 to 2019. This setting uses the traditional plainsong with the usual chorus parts set to new music. Additionally, the part of God and parts of the Evangelist are taken by the choir. Inspiration from the Camidge chant as often used for Psalm 22 (as set for Good Friday). The original version only set chapter 19, but chapter 18 has now been prepended."
+        },
+        {
+            "title": "The Good Shepherd",
+            "voicing": "SATB",
+            "date": "March 2013",
+            "url": "2013_The_Good_Shepherd.pdf",
+            "extraInfo": "Winner of the Durham Cathedral Composition Competition."
+        },
+        {
+            "title": "Thou hast been a strength to the poor",
+            "voicing": "SATB + Sax + Organ",
+            "date": "March 2021",
+            "extraInfo": "Written for the Canterbury Cathedral Palimpsest Composition Competition."
+        },
+        {
+            "title": "Veni Sancte Spiritus",
+            "voicing": "SSAATB + 2 soloists",
+            "date": "June 2012",
+            "url": "2012%20Veni%20Sancte%20Spiritus.pdf",
+            "extraInfo": "Written for St Edmundsbury Cathedral Choir, for use during the Ordination of Priests. It is based on the traditional plainsong, and is designed to be flexible in length: it was sung during the Ordination Prayer, from a distance."
+        },
+        {
+            "title": "Victimae Paschali Laudes",
+            "voicing": "SSAA + Organ",
+            "date": "April 2012",
+            "url": "2012%20Victimae.pdf",
+            "extraInfo": "Written for the St Edmundsbury Singers, this is based on the traditional Easter plainsong."
+        },
+        {
+            "title": "What does the Lord thy God require",
+            "voicing": "SATB (or 2-part) + Organ",
+            "date": "January 2011",
+            "extraInfo": "Written for the King James Bible Trust Composition Competition."
+        },
+        {
+            "title": "When the Lord comes",
+            "voicing": "SSATTB",
+            "date": "December 2006",
+            "url": "2006%20When%20the%20Lord%20comes.pdf",
+            "extraInfo": "Written for the Girls' Choir at Rochester Cathedral. Was one of the four introits sung at the start of the Eucharist whilst the Advent Candle was lit. This is for Advent 3. I reduced the number of parts in 2011."
+        }
+    ],
+    "other": [
+        {
+            "title": "Blues",
+            "subtitle": "with words by W.H. Auden",
+            "voicing": "Sop / Piano",
+            "date": "November 2003"
+        },
+        {
+            "title": "Fugue",
+            "voicing": "Piano",
+            "date": "April 2004"
+        },
+        {
+            "title": "Passacaglia for Small Orchestra",
+            "date": "February 2005"
+        },
+        {
+            "title": "Short Fanfare on Victimae Paschali Laudes",
+            "voicing": "Organ",
+            "date": "April 2011",
+            "url": "2011%20Victimae%20Fanfare.pdf"
+        },
+        {
+            "title": "The Lord Lieutenant's Royal Fanfare",
+            "voicing": "Organ",
+            "date": "May 2012"
+        },
+        {
+            "title": "Varietates Novem (Theme & 9 Variations)",
+            "voicing": "Piano Duet",
+            "date": "May 2005"
+        }
+    ],
+    "arrangements": [
+        {
+            "title": "Bach / Elgar Fantasia & Fugue in C minor",
+            "voicing": "for smaller orchestra",
+            "date": "June 2004"
+        },
+        {
+            "title": "Beatles Blackbird",
+            "voicing": "Organ",
+            "date": "April 2013"
+        },
+        {
+            "title": "Procul Harum A whiter shade of pale",
+            "voicing": "Organ",
+            "date": "December 2012"
+        },
+        {
+            "title": "Saint-Saëns Danse Macabre",
+            "voicing": "Organ Duet",
+            "date": "March 2000"
+        },
+        {
+            "title": "Saint-Saëns Symphony no. 3 \"Organ\", last movement, abridged",
+            "subtitle": "for Tom & Isabel",
+            "voicing": "Organ",
+            "date": "August 2009"
+        },
+        {
+            "title": "Stanford Kyrie in C",
+            "subtitle": "from Stanford settings in C, for use with the Mass in C",
+            "voicing": "SATB + Organ",
+            "date": "January 2007",
+            "url": "stanfordkyrie.pdf"
+        },
+        {
+            "title": "Williams The Raiders March (Raiders of the Lost Ark)",
+            "subtitle": "for Annie & Chris",
+            "voicing": "Organ",
+            "date": "May 2010",
+            "url": "",
+            "extraInfo": ""
+        }
+    ],
+    "hymns": [
+        {
+            "title": "Be still",
+            "voicing": "SATB harmony and Organ part",
+            "date": "February 2011"
+        },
+        {
+            "title": "Beauty for Brokenness",
+            "voicing": "SATB harmony and Organ part",
+            "date": "June 2012"
+        },
+        {
+            "title": "Blaenwern (Love Divine)",
+            "voicing": "Last-verse harmony",
+            "date": "May 2022",
+            "url": "blaenwern%20(harmony).pdf"
+        },
+        {
+            "title": "Camberwell (At the name of Jesus)",
+            "voicing": "SATB harmony, Organ part, Last-verse harmony and short descant",
+            "date": "June 2009"
+        },
+        {
+            "title": "Caswall (Glory be to Jesus)",
+            "voicing": "Last-verse harmony",
+            "date": "March 2017",
+            "url": "caswall%20(harmony).pdf"
+        },
+        {
+            "title": "Diademata (Crown him with many Crowns)",
+            "voicing": "Last-verse harmony",
+            "date": "April 2011",
+            "url": "diademata%20(harmony).pdf"
+        },
+        {
+            "title": "Gather us in (Here in this place)",
+            "voicing": "Organ part",
+            "date": "July 2011"
+        },
+        {
+            "title": "Gerontius (Praise to the holiest)",
+            "voicing": "Last-verse harmony",
+            "date": "September 2011",
+            "url": "gerontius%20(harmony).pdf"
+        },
+        {
+            "title": "God Rest you, merry Gentlemen",
+            "voicing": "SSAATB version of end of Willcocks descant for unaccompanied use",
+            "date": "December 2003"
+        },
+        {
+            "title": "Hark the Herald",
+            "voicing": "Trumpet and Last-verse harmony",
+            "date": "December 2005",
+            "url": "mendelssohn_tpt_and_org.pdf"
+        },
+        {
+            "title": "Hereford (O thou who camest from above)",
+            "voicing": "Descant / harmony",
+            "date": "August 2011",
+            "url": "hereford%20(descant).pdf"
+        },
+        {
+            "title": "Hyfrydol (Alleluya, sing to Jesus)",
+            "voicing": "Last-verse harmony",
+            "date": "May 2022",
+            "url": "hyfrydol%20(harmony).pdf"
+        },
+        {
+            "title": "In bread we bring you lord",
+            "voicing": "SATB and Organ, anthem-style",
+            "date": "September 2008",
+            "url": "in%20bread%20we%20bring%20you%20organ%20satb.pdf"
+        },
+        {
+            "title": "It came upon the midnight clear",
+            "voicing": "SSATB version of end of Willcocks descant for unaccompanied use",
+            "date": "December 2003"
+        },
+        {
+            "title": "Lord of the years (Lord, for the years)",
+            "subtitle": "for Rochester Cathedral Girl Choristers at my last service as their director",
+            "voicing": "Descant / harmony",
+            "date": "October 2010"
+        },
+        {
+            "title": "Marching",
+            "voicing": "Descant",
+            "date": "September 2011"
+        },
+        {
+            "title": "Old Yeavering (Like a mighty river flowing)",
+            "voicing": "Piano & Organ duet, through-written",
+            "date": "October 2010"
+        },
+        {
+            "title": "Regents Square",
+            "voicing": "Descant",
+            "date": "April 1997"
+        },
+        {
+            "title": "Salva Festa Dies (Hail thee, Festival Day)",
+            "voicing": "SATB harmony for procession",
+            "date": "April 2010"
+        },
+        {
+            "title": "The Servant King (From heaven you came, helpless babe)",
+            "voicing": "Organ part",
+            "date": "July 2011"
+        },
+        {
+            "title": "Zither Carol (Girls and boys)",
+            "voicing": "Organ part",
+            "date": "December 2009"
+        }
+    ],
+    "editions": [
+        {
+            "title": "Byrd In Resurrectione tua",
+            "date": "March 2004"
+        },
+        {
+            "title": "de Severac Tantum Ergo",
+            "date": "January 2009"
+        },
+        {
+            "title": "Farmer Lord's Prayer",
+            "date": "September 2011",
+            "url": "Farmer%20Lord's%20Prayer.pdf"
+        },
+        {
+            "title": "Giles Te Deum",
+            "date": "March 2005"
+        },
+        {
+            "title": "Mozart Alleluia",
+            "date": "April 2009",
+            "url": "mozart-alleluia.pdf"
+        },
+        {
+            "title": "Plainsong Ingrediente Domino",
+            "date": "March 2021",
+            "url": "plainsong-ingrediente-domino.pdf"
+        },
+        {
+            "title": "Plainsong Responses",
+            "date": "March 2007"
+        },
+        {
+            "title": "Purcell M&N in B flat",
+            "date": "July 2006",
+            "url": "purcellinbflat.pdf"
+        },
+        {
+            "title": "Purcell O God, thou art my God",
+            "date": "July 2006",
+            "url": "Purcell%20O%20God,%20thou%20art.pdf"
+        },
+        {
+            "title": "Purcell Remember not, Lord, our offences",
+            "date": "October 2004"
+        },
+        {
+            "title": "Schubert Mass in G",
+            "subtitle": "(no Benedictus or Credo yet)",
+            "date": "December 2010"
+        },
+        {
+            "title": "Stanford Sanctus from Communion in B flat",
+            "date": "November 2004"
+        },
+        {
+            "title": "Tallis Responses",
+            "date": "May 2009"
+        }
+    ]
+}
