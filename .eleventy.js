@@ -20,6 +20,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("templates");
     eleventyConfig.addPassthroughCopy("images");
     eleventyConfig.addPassthroughCopy("lib");
+    eleventyConfig.addPassthroughCopy("_redirects");
 
     eleventyConfig.addFilter("tweetsFilter", tweetsfilter);
 
