@@ -21,6 +21,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("images");
     eleventyConfig.addPassthroughCopy("lib");
     eleventyConfig.addPassthroughCopy("_redirects");
+    eleventyConfig.addPassthroughCopy("robots.txt");
 
     eleventyConfig.addFilter("tweetsFilter", tweetsfilter);
 
