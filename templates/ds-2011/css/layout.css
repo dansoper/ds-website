@@ -288,6 +288,10 @@ footer a:hover {text-decoration: none; color: #ffffff; }
     float:left;
     margin-right: 10px;	
 }
+.wide-image {
+    max-width: 100%;
+    height: auto;
+}
 
 /* Colours and styles */
 

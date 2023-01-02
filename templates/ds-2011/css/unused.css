@@ -135,16 +135,7 @@
         text-size-adjust: none;
     }
     
-    /*
-    * SMALL MOBILE
-    */
     
-    @media only screen and (max-width: 479px) {
-        img.big {
-            width: 288px;
-            height: auto;	
-        }
-    }
 
 /* temp? */
 
