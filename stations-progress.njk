@@ -144,7 +144,7 @@ eleventyNavigation:
     <tr class="{{ "complete" if (county.percentage == 100 and county.name != "Extras") }}
       {{ "started" if (county.percentage > 0 and county.percentage < 50) }}
       {{ "halfway" if (county.percentage >= 50 and county.percentage < 100) }}
-      {{ "total-on-map" if (county.name == "Total on map") }}
+      {{ "total-on-map" if (county.name == "Total on map" or county.name == "England") }}
       {{ "total" if (county.name == "Total") }}"><td>{{ county.name }}{% if county.name == "London" %} (<a href="#london-breakdown">breakdown</a>){% endif %}</td><td>{{ county.total }}</td><td>{{ county.visited }}</td><td class="percentage">{% if county.name != "Extras" %}{{ county.percentage }}%{% endif %}</td></tr>
   {% endfor %}
 </table>

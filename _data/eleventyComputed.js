@@ -33,6 +33,7 @@ module.exports = {
         });
         counties.push({ total, visited, name: "Total on map" });
         counties.push({ total: data.countiesNotOnMap.notOnMapCount, visited: 0, name: "Total not on map (England)" });
+        counties.push({ total: data.countiesNotOnMap.notOnMapCount + total, visited, name: "England" });
         const scot = 360
         counties.push({ total: scot, visited: 0, name: "Scotland" });
         const wal = 223;
