@@ -1,4 +1,8 @@
-var Twitter = require('twitter');
+module.exports = function() {
+  return [];
+}
+
+/*var Twitter = require('twitter');
 require('dotenv').config()
 
 var client = new Twitter({
@@ -14,4 +18,4 @@ module.exports = async function() {
     .catch((err) => {
       console.error(err);
     });
-}
+}*/
