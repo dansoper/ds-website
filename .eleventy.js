@@ -7,7 +7,6 @@ const detailtoggles = require('./_transforms/detailtoggles');
 const highslideImageShortcode = require('./_shortcodes/image');
 const yearShortcode = require('./_shortcodes/year');
 const gitLastCommitDate = require('./_shortcodes/git-date');
-const tweetsfilter = require('./_filters/tweetsfilter');
 const { minify } = require("terser");
 
 module.exports = function (eleventyConfig) {
@@ -22,8 +21,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("lib");
     eleventyConfig.addPassthroughCopy("_redirects");
     eleventyConfig.addPassthroughCopy("robots.txt");
-
-    eleventyConfig.addFilter("tweetsFilter", tweetsfilter);
 
     eleventyConfig.addFilter("friendlyDate", function (dateObj) {
         return moment(dateObj, "ddd MMM D HH:mm:ss ZZ YYYY").locale("en").fromNow();
