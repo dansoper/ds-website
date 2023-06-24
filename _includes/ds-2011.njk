@@ -7,7 +7,8 @@ stylesheets:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#137785">
 	<link href="/templates/ds-2011/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
 	<title>{% if pageTitle %}{{ pageTitle }} - Dan Soper{% else %}Dan Soper{% endif %}</title>
 	{% set css %}{% for st in stylesheets | unique %}{% include st + ".css" %}{% endfor %}{% endset %}{# capture the CSS content as a Nunjucks variable then feed it through css in filter to minify #}
