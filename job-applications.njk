@@ -158,7 +158,7 @@ layout:
         </section>
         <svg id="line-container"></svg>
         <script>
-            const applications = [
+                const applications = [
                 {
                     title: "Sixth form",
                     startDate: "20001001",
@@ -564,6 +564,9 @@ layout:
             }
 
             function drawApplications(applications) {
+                const barsParentDiv = document.createElement("div");
+                barsParentDiv.id = "bars-parent";
+                document.body.appendChild(barsParentDiv);
                 const interviewsParentDiv = document.createElement("div");
                 interviewsParentDiv.id = "interviews-parent";
                 document.body.appendChild(interviewsParentDiv);
@@ -571,82 +574,90 @@ layout:
                 applications.forEach((app, index) => {
                     const startMonth = app.startDate.substring(0, 6);
                     const startDay = Number(app.startDate.substring(6)) / 30 * 50;
-                    const startElements = document.querySelectorAll("[data-date='" + startMonth + "']");
-                    if (startElements.length > 0) {
-                        const startElement = startElements[0];
-                        let endDate = app.endDate;
-                        if (endDate == null) {
-                            const currentDate = new Date();
-                            let d = currentDate.getDate() + 1;
-                            if (d < 10) m = "0" + d;
-                            let m = currentDate.getMonth() + 1;
-                            if (m < 10) m = "0" + m;
-                            let y = currentDate.getFullYear();
-                            endDate = "" + y + m + d;
-                        }
-                        const endMonth = endDate.substring(0, 6);
-                        const endDay = Number(endDate.substring(6)) / 30 * 50;
-                        const endElements = document.querySelectorAll("[data-date='" + endMonth + "']");
-                    
-                        if (endElements.length > 0) {
-                            const endElement = endElements[0];
-
-                            const barDiv = document.createElement("div");
-                            barDiv.id = "bar-" + index;
-                            barDiv.style.top = (startElement.offsetTop + startDay) + "px";
-                            barDiv.style.height = (endElement.offsetTop - startElement.offsetTop + endDay - startDay) + "px";
-                            barDiv.classList.add("time-entry");
-                            barDiv.classList.add("l-" + app.col);
-                            if (app.unEnded) {
-                                barDiv.classList.add("unended");
-                            }
-                            if (app.stage == "interview") {
-                                barDiv.classList.add("interview");
-                            } else if (app.stage == "successful") {
-                                barDiv.classList.add("successful");
-                            } else if (app.stage == "job") {
-                                barDiv.classList.add("job");
-                            }
-                            if (app.endDate == null) {
-                                barDiv.classList.add("arrow")
-                            }
-                            document.body.appendChild(barDiv);
-
-                            const detailDiv = document.createElement("div");
-                            detailDiv.classList.add("detail-block");
-                            detailDiv.setAttribute("data-related-id", index);
-                            detailDiv.innerHTML = "<b>" + app.title + "</b><br>" + app.description;
-                            if (app.stage == "interview") {
-                                detailDiv.classList.add("interview");
-                            } else if (app.stage == "successful") {
-                                detailDiv.classList.add("successful");
-                            } else if (app.stage == "job") {
-                                detailDiv.classList.add("job");
-                            }
-                            interviewsParentDiv.appendChild(detailDiv);
-
-                            const lineDiv = document.createElementNS('http://www.w3.org/2000/svg','line');
-                            lineDiv.setAttribute("id", "line-" + index);
-                            if (app.stage == "interview") {
-                                lineDiv.classList.add("interview");
-                            } else if (app.stage == "successful") {
-                                lineDiv.classList.add("successful");
-                            } else if (app.stage == "job") {
-                                lineDiv.classList.add("job");
-                            }
-                            const container = document.getElementById("line-container");
-                            container.appendChild(lineDiv);
-                        } else {
-                            console.error(app);
-                        }
-                    } else {
-                        console.error(app);
+                    let endDate = app.endDate;
+                    if (endDate == null) {
+                        const currentDate = new Date();
+                        let d = currentDate.getDate() + 1;
+                        if (d < 10) m = "0" + d;
+                        let m = currentDate.getMonth() + 1;
+                        if (m < 10) m = "0" + m;
+                        let y = currentDate.getFullYear();
+                        endDate = "" + y + m + d;
                     }
+                    const endMonth = endDate.substring(0, 6);
+                    const endDay = Number(endDate.substring(6)) / 30 * 50;
+
+                    const barDiv = document.createElement("div");
+                    barDiv.id = "bar-" + index;
+                    barDiv.setAttribute("data-start-month", startMonth);
+                    barDiv.setAttribute("data-start-day", startDay);
+                    barDiv.setAttribute("data-end-month", endMonth);
+                    barDiv.setAttribute("data-end-day", endDay);
+                    barDiv.classList.add("time-entry");
+                    barDiv.classList.add("l-" + app.col);
+                    if (app.unEnded) {
+                        barDiv.classList.add("unended");
+                    }
+                    if (app.stage == "interview") {
+                        barDiv.classList.add("interview");
+                    } else if (app.stage == "successful") {
+                        barDiv.classList.add("successful");
+                    } else if (app.stage == "job") {
+                        barDiv.classList.add("job");
+                    }
+                    if (app.endDate == null) {
+                        barDiv.classList.add("arrow")
+                    }
+                    barsParentDiv.appendChild(barDiv);
+
+                    const detailDiv = document.createElement("div");
+                    detailDiv.classList.add("detail-block");
+                    detailDiv.setAttribute("data-related-id", index);
+                    detailDiv.innerHTML = "<b>" + app.title + "</b><br>" + app.description;
+                    if (app.stage == "interview") {
+                        detailDiv.classList.add("interview");
+                    } else if (app.stage == "successful") {
+                        detailDiv.classList.add("successful");
+                    } else if (app.stage == "job") {
+                        detailDiv.classList.add("job");
+                    }
+                    interviewsParentDiv.appendChild(detailDiv);
+
+                    const lineDiv = document.createElementNS('http://www.w3.org/2000/svg','line');
+                    lineDiv.setAttribute("id", "line-" + index);
+                    if (app.stage == "interview") {
+                        lineDiv.classList.add("interview");
+                    } else if (app.stage == "successful") {
+                        lineDiv.classList.add("successful");
+                    } else if (app.stage == "job") {
+                        lineDiv.classList.add("job");
+                    }
+                    const container = document.getElementById("line-container");
+                    container.appendChild(lineDiv);
                 });
             }
 
 
             function positions() {
+                var els = document.getElementById("bars-parent").children;
+                for (let i = 0; i < els.length; i++) {
+                    const barEl = els[i];
+                    const startMonth = barEl.getAttribute("data-start-month");
+                    const endMonth = barEl.getAttribute("data-end-month");
+                    const startDay = Number(barEl.getAttribute("data-start-day"));
+                    const endDay = Number(barEl.getAttribute("data-end-day"));
+                    const startElements = document.querySelectorAll("[data-date='" + startMonth + "']");
+                    if (startElements.length > 0) {
+                        const startElement = startElements[0];
+                        const endElements = document.querySelectorAll("[data-date='" + endMonth + "']");
+                        if (endElements.length > 0) {
+                            const endElement = endElements[0];
+                            barEl.style.top = (startElement.offsetTop + startDay) + "px";
+                            barEl.style.height = (endElement.offsetTop - startElement.offsetTop + endDay - startDay) + "px";
+                        }
+                    }
+                }
+
                 let yPosition = 0;
                 var els = document.getElementById("interviews-parent").children;
                 for (let i = 0; i < els.length; i++) {
