@@ -1,0 +1,668 @@
+---
+layout:
+---
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dan's jobs and applications</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            /* https://coolors.co/084b83-42bfdd-dccca3-f72c25-d8315b */
+            html {
+                --timeline-colour: #016FB9;
+                --bar-unsuccessful-colour: #22AED1;
+                --bar-interview-colour: #9D22D1;
+                --bar-successful-colour: #56D122;
+            }
+
+            h1 {
+                margin-top: 0;
+            }
+
+            .month {
+                border-left: 4px solid var(--timeline-colour);
+                padding-left: 5px;
+                padding-top: 5px;
+                font-size: 0.9em;
+                position: relative;
+                height: 50px;
+            }
+
+            .year::before {
+                content: " ";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 10px;
+                border-bottom: 2px solid var(--timeline-colour);
+            }
+
+            * {
+                font-family: "Mulish", sans-serif;
+                font-optical-sizing: auto;
+                font-style: normal;
+            }
+
+            .detail-block {
+                --bar-colour: var(--bar-unsuccessful-colour);
+                position: absolute;
+                left: 250px;
+                border: 2px solid var(--bar-colour);
+                padding: 5px;
+                border-radius: 5px;
+                max-width: calc(100% - 290px);
+                overflow: auto;
+            }
+
+            .key-block {
+                --bar-colour: var(--bar-unsuccessful-colour);
+                border: 2px solid var(--bar-colour);
+                padding: 5px;
+                border-radius: 5px;
+                margin: 10px 0;
+            }
+
+            .detail-block.job, .key-block.job {
+                border-width: 0 0 0 8px;
+                border-radius: 0;
+            }
+
+            .time-entry {
+                --bar-colour: var(--bar-unsuccessful-colour);
+                background-color: var(--bar-colour);
+                width: 25px;
+                border-radius: 5px;
+                position: absolute;
+                left: 60px;
+            }
+            .time-entry.l-2 {
+                left: 90px;
+            }
+            .time-entry.l-3 {
+                left: 120px;
+            }
+            .time-entry.l-4 {
+                left: 150px;
+            }
+            .time-entry.l-5 {
+                left: 180px;
+            }
+            .time-entry.l-6 {
+                left: 210px;
+            }
+            .time-entry.unended {
+                background: linear-gradient(var(--bar-colour), 80%, transparent);
+            }
+            .time-entry.arrow::after {
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                background-color: inherit;
+                padding-bottom:50%; width:57.7%;
+                z-index:-1;
+                transform-origin: 0 0;
+                transform: rotate(-30deg) skewX(30deg);
+            }
+            
+            #line-container {
+                position: absolute;
+                top:0;
+                left:0;
+                width:260px;
+            }
+            line {
+                --bar-colour: var(--bar-unsuccessful-colour);
+                stroke-width: 2px;
+                stroke-dasharray: 5, 5;
+                stroke-opacity: 0.5;
+                stroke: var(--bar-colour);
+            }
+            line:hover {
+                stroke-opacity: 1;
+            }
+            
+            .time-entry.interview, line.interview, .detail-block.interview, .key-block.interview {
+                --bar-colour: var(--bar-interview-colour);
+            }
+            .time-entry.successful, line.successful, .detail-block.successful, .key-block.successful {
+                --bar-colour: var(--bar-successful-colour);
+            }
+            .time-entry.job, line.job, .detail-block.job, .key-block.job {
+                --bar-colour: #888;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Dan&rsquo;s jobs and applications</h1>
+        <h2>Key</h2>
+        <div class="key-block job">
+            Grey: What I was doing at the time.
+        </div>
+        <div class="key-block">
+            Blue: A job I applied for.
+        </div>
+        <div class="key-block interview">
+            Purple: I interviewed.
+        </div>
+        <div class="key-block successful">
+            Green: I got the job!
+        </div>
+        <h2>Timeline</h2>
+        <section id="timeline-container">
+        </section>
+        <svg id="line-container"></svg>
+        <script>
+            const applications = [
+                {
+                    title: "Sixth form",
+                    startDate: "20001001",
+                    endDate: "20010731",
+                    description: "Until July 2001",
+                    stage: "job"
+                },
+                {
+                    title: "Organ Scholar, Canterbury Cathedral",
+                    startDate: "20001028",
+                    endDate: "20010115",
+                    stage: "interview",
+                    description: "Applied 28 Oct 2000, Interviewed, Rejected"
+                },
+                {
+                    title: "Organ Scholar, Chelmsford Cathedral",
+                    startDate: "20010116",
+                    endDate: "20010130",
+                    stage: "successful",
+                    description: "Offered job, Accepted 20 Jan 2001"
+                },
+                {
+                    title: "Organ Scholar, Chelmsford Cathedral",
+                    startDate: "20010901",
+                    endDate: "20020731",
+                    description: "September 2001 to August 2002",
+                    stage: "job"
+                },
+                {
+                    title: "Organ Scholar, Corpus Christi College, Cambridge",
+                    startDate: "20020915",
+                    endDate: "20050630",
+                    description: "September 2002 to June 2005",
+                    stage: "job"
+                },
+                {
+                    title: "Organ Scholar, King's Voices, Cambridge",
+                    startDate: "20040603",
+                    endDate: "20040703",
+                    stage: "interview",
+                    description: "Applied 3 Jun 2004, Interviewed, Rejected"
+                },
+                {
+                    title: "Assistant Organist, Winchester College, and Music Assistant, The Pilgrims' School, Winchester",
+                    startDate: "20041203",
+                    endDate: "20050125",
+                    stage: "successful",
+                    description: "Applied 3 Dec 2004, Interviewed, Offered job, Accepted 25 Jan 2005"
+                },
+                {
+                    title: "Assistant Organist, Winchester College, and Music Assistant, The Pilgrims' School, Winchester",
+                    startDate: "20050901",
+                    endDate: "20060731",
+                    description: "September 2005 to July 2006",
+                    stage: "job"
+                },
+                {
+                    title: "Information Technology and Audio-Visual Assistant, The Pilgrims' School, Winchester",
+                    startDate: "20060320",
+                    endDate: "20060420",
+                    stage: "interview",
+                    description: "Applied 20 Mar 2006, Interviewed, Rejected"
+                },
+                {
+                    title: "Director of Music, St Michael and All Angels, West Croydon",
+                    startDate: "20060406",
+                    endDate: "20060503",
+                    description: "Applied 6 Apr 2006, Rejected"
+                },
+                {
+                    title: "Organist and Master of the Choristers, Grimsby Parish Church",
+                    startDate: "20060504",
+                    endDate: "20060604",
+                    description: "Applied 4 May 2006, Rejected"
+                },
+                {
+                    title: "Assistant Director of Music, Blackburn Cathedral",
+                    startDate: "20060518",
+                    endDate: "20060610",
+                    stage: "interview",
+                    description: "Applied 18 May 2006, Interviewed 8-9 Jun, Rejected 10 Jun"
+                },
+                {
+                    title: "Assistant Director of Music, Rochester Cathedral",
+                    startDate: "20060602",
+                    endDate: "20060621",
+                    stage: "successful",
+                    description: "Applied 2 Jun 2006, Interviewed 19 Jun, Offered job and accepted"
+                },
+                {
+                    title: "Assistant Director of Music, Rochester Cathedral",
+                    startDate: "20060901",
+                    endDate: "20101031",
+                    description: "September 2006 to October 2010",
+                    stage: "job"
+                },
+                {
+                    title: "Assistant Organist, Canterbury Cathedral",
+                    startDate: "20100609",
+                    endDate: "20100625",
+                    stage: "interview",
+                    description: "Applied 9 Jun 2010, Interviewed 23-24 Jun, Rejected 25 Jun"
+                },
+                {
+                    title: "Director of Music of Chapel, Old Royal Naval College Chapel",
+                    startDate: "20100827",
+                    endDate: "20101001",
+                    description: "Applied 27 Aug 2010, Rejected 1 Oct"
+                },
+                {
+                    title: "IT Technician - Webmaster, Canterbury Cathedral",
+                    startDate: "20100915",
+                    endDate: "20101022",
+                    stage: "interview",
+                    description: "Applied 15 Sep 2010, Interviewed 18 Oct, Rejected"
+                },
+                {
+                    title: "Assistant Director of Music, Dartford Parish Church",
+                    startDate: "20100924",
+                    endDate: "20101010",
+                    stage: "successful",
+                    description: "Applied 24 Sep 2010, Interviewed 5 Oct, Offered job and accepted"
+                },
+                {
+                    title: "Organist/Director of Music, St Michael's, Chester Square",
+                    startDate: "20101001",
+                    endDate: "20101013",
+                    description: "Applied 1 Oct 2010, Withdrawn 13 Oct"
+                },
+                {
+                    title: "Assistant Director of Music, Dartford Parish Church",
+                    startDate: "20101101",
+                    endDate: "20111101",
+                    description: "November 2010 to November 2011",
+                    stage: "job"
+                },
+                {
+                    title: "Studio Administrator, Royal College of Music, London",
+                    startDate: "20101112",
+                    endDate: "20101212",
+                    unEnded: true,
+                    description: "Applied 12 Nov 2010, Not contacted"
+                },
+                {
+                    title: "Deputy Theory Coordinator, ABRSM, London",
+                    startDate: "20110118",
+                    endDate: "20110131",
+                    stage: "interview",
+                    description: "Applied 18 Jan 2011, Interviewed 26 Jan, Rejected"
+                },
+                {
+                    title: "Assistant Director of Music, Chester Cathedral",
+                    startDate: "20110211",
+                    endDate: "20110221",
+                    description: "Applied 11 Feb 2011, Rejected 21 Feb"
+                },
+                {
+                    title: "IT Technician, National Institutions of the Church of England, London",
+                    startDate: "20110302",
+                    endDate: "20110317",
+                    stage: "interview",
+                    description: "Applied 2 Mar 2011, Interviewed 10 Mar, Rejected 17 Mar"
+                },
+                {
+                    title: "Associate Director of Music, All Saints, Margaret Street",
+                    startDate: "20110506",
+                    endDate: "20110609",
+                    description: "Applied 6 May 2011, Rejected 9 May"
+                },
+                {
+                    title: "Sub-Organist, Durham Cathedral",
+                    startDate: "20110514",
+                    endDate: "20110518",
+                    description: "Applied 14 May 2011, Rejected 18 May"
+                },
+                {
+                    title: "Assistant Director of Music, Peterborough Cathedral",
+                    startDate: "20110619",
+                    endDate: "20110623",
+                    description: "Applied 19 Jun 2011, Rejected 23 Jun"
+                },
+                {
+                    title: "Assistant Director of Music, St Edmundsbury Cathedral",
+                    startDate: "20110916",
+                    endDate: "20111003",
+                    stage: "successful",
+                    description: "Applied 16 Sep 2011, Interviewed 29-30 Sep, Offered job and accepted 3 Oct, Started 8 Nov"
+                },
+                {
+                    title: "Assistant Organist, Westminster Abbey",
+                    startDate: "20110923",
+                    endDate: "20110930",
+                    description: "Applied 23 Sep 2011, Rejected 30 Sep"
+                },
+                {
+                    title: "Assistant Director of Music, St Edmundsbury Cathedral",
+                    startDate: "20111108",
+                    endDate: "20160408",
+                    description: "November 2011 to April 2016",
+                    stage: "job"
+                },
+                {
+                    title: "Director of Music, Peterborough Cathedral",
+                    startDate: "20140324",
+                    endDate: "20140325",
+                    description: "Applied 24 Mar 2014, Rejected 25 Mar"
+                },
+                {
+                    title: "Organist and Master of the Choristers, Chichester Cathedral",
+                    startDate: "20140423",
+                    endDate: "20140502",
+                    description: "Applied 23 Apr 2014, Rejected 2 May"
+                },
+                {
+                    title: "Director of Music, Derby Cathedral",
+                    startDate: "20140630",
+                    endDate: "20140707",
+                    description: "Applied 30 Jun 2014, Rejected 7 Jul"
+                },
+                {
+                    title: "Music and Liturgy Manager, York Minster",
+                    startDate: "20140912",
+                    endDate: "20141001",
+                    description: "Applied 12 Sep 2014, Rejected 1 Oct"
+                },
+                {
+                    title: "Assistant Director of Music, Lincoln Cathedral",
+                    startDate: "20140928",
+                    endDate: "20141013",
+                    stage: "interview",
+                    description: "Applied 28 Sep 2014, Interviewed 8-9 Oct, Rejected 13 Oct"
+                },
+                {
+                    title: "IT Technician - Web & Digital Developer, Canterbury Cathedral",
+                    startDate: "20141111",
+                    endDate: "20141124",
+                    stage: "interview",
+                    description: "Applied 11 Nov 2014, Interviewed 19 Nov, Rejected 24 Nov"
+                },
+                {
+                    title: "Digital Media Manager, Westminster Abbey",
+                    startDate: "20150105",
+                    endDate: "20150125",
+                    unEnded: true,
+                    description: "Applied 5 Jan 2015, Not contacted"
+                },
+                {
+                    title: "Director of Music, Exeter Cathedral",
+                    startDate: "20150511",
+                    endDate: "20150520",
+                    description: "Applied 11 May 2015, Rejected 20 May"
+                },
+                {
+                    title: "Administrative and Editorial Assistant, Westminster Abbey",
+                    startDate: "20150731",
+                    endDate: "20150810",
+                    unEnded: true,
+                    description: "Applied 31 Jul 2015, Not contacted"
+                },
+                {
+                    title: "Liturgical Office Administrator and Precentor's PA, St Paul's Cathedral",
+                    startDate: "20150811",
+                    endDate: "20150814",
+                    description: "Applied 11 Aug 2015, Withdrawn 14 Aug 2015"
+                },
+                {
+                    title: "Digital Content Assistant, Cambridge Assessment, Cambridge",
+                    startDate: "20150812",
+                    endDate: "20150827",
+                    description: "Applied 12 Aug 2015, Withdrawn and rejected 27 Aug"
+                },
+                {
+                    title: "Website Administrator, Faculty of Economics, Cambridge",
+                    startDate: "20150814",
+                    endDate: "20150827",
+                    description: "Applied 14 Aug 2015, Invited to Interview 27 Aug for 3 Sep, Declined"
+                },
+                {
+                    title: "Junior Web Developer, Bury St Edmunds (Norfolk IT Recruitment)",
+                    startDate: "20151019",
+                    endDate: "20151119",
+                    unEnded: true,
+                    description: "Applied 19 Oct 2015, Not contacted"
+                },
+                {
+                    title: "Junior Web Developer, Plusnet, Sheffield",
+                    startDate: "20151019",
+                    endDate: "20151119",
+                    unEnded: true,
+                    description: "Applied 19 Oct 2015, Not contacted"
+                },
+                {
+                    title: "Music Secretary, Chapel and Music Office, Trinity College, Cambridge",
+                    startDate: "20151019",
+                    endDate: "20151119",
+                    unEnded: true,
+                    description: "Applied 19 Oct 2015, Not contacted"
+                },
+                {
+                    title: "PHP Web Developer, Bury St Edmunds (Henry Nicholas Associates)",
+                    startDate: "20151115",
+                    endDate: "20151215",
+                    unEnded: true,
+                    description: "Applied 15 Nov 2015, Not contacted"
+                },
+                {
+                    title: "Choir Marketing and Communications Officer, St John's College, Cambridge",
+                    startDate: "20151116",
+                    endDate: "20151202",
+                    stage: "interview",
+                    description: "Applied 16 Nov 2015, Interviewed 1 Dec, Rejected 2 Dec"
+                },
+                {
+                    title: "Junior Web Developer, Bury St Edmunds (Norfolk IT Recruitment)",
+                    startDate: "20151120",
+                    endDate: "20151220",
+                    unEnded: true,
+                    description: "Applied 20 Nov 2015, Not contacted"
+                },
+                {
+                    title: "Junior PHP Developer, Toolbox Marketing, Bardwell, Suffolk (Norfolk IT Recruitment)",
+                    startDate: "20151210",
+                    endDate: "20151231",
+                    description: "Recruitment Agent applied for me, Invited to interview 18 Dec 2015, Accepted, but didn't go"
+                },
+                {
+                    title: "Digital Campaign Designer, Suffolk (rthirteen recruitment)",
+                    startDate: "20160118",
+                    endDate: "20160201",
+                    unEnded: true,
+                    description: "Applied 18 Jan 2016, Not contacted"
+                },
+                {
+                    title: "Trainee Developer, Cromwell Business Systems, Ely",
+                    startDate: "20160118",
+                    endDate: "20160205",
+                    description: "Applied 18 Jan 2016, Interviewed 1 Feb, Invited to interview 5 Feb for 23 Feb, Declined"
+                },
+                {
+                    title: "Trainee IT Technician & Developer, Victoria Forms, Bury St Edmunds",
+                    startDate: "20160118",
+                    endDate: "20160206",
+                    stage: "successful",
+                    description: "Applied 18 Jan 2016, Interviewed 25 Jan and 1 Feb, Offered job 5 Feb, Accepted 6 Feb, Started 11 Apr"
+                },
+                {
+                    title: "Trainee IT Technician & Developer (then Senior/Lead Developer), Victoria Forms, Bury St Edmunds",
+                    startDate: "20160411",
+                    description: "Since April 2016",
+                    stage: "job"
+                }
+            ];
+
+            checkClashes(applications);
+            drawMonths();
+
+            document.fonts.ready.then(function () {
+                const lineContainerSvg = document.getElementById("line-container");
+                const timelineContainer = document.getElementById("timeline-container");
+                const height = timelineContainer.offsetTop + timelineContainer.offsetHeight
+                lineContainerSvg.style.height = height;
+                lineContainerSvg.setAttribute("viewBox", "0 0 260 " + height);
+
+                drawApplications(applications); 
+                requestAnimationFrame(positions);
+
+                window.addEventListener("resize", () => {
+                    positions();
+                });
+            });
+            
+            function checkClashes(applications) {
+                applications.forEach(app => {
+                    let col = 1;
+                    while (applications.find(a => Number(a.startDate) <= Number(app.endDate) && Number(a.endDate) >= Number(app.startDate) && a.col == col) != null) {
+                        col++;
+                    }
+                    app.col = col;
+                });
+            }
+
+            function drawMonths() {
+                const parentEl = document.getElementById("timeline-container");
+                const currentDate = new Date();
+                let changingDate = new Date(2000, 9, 1);
+                let year = 0;
+                while (changingDate < currentDate) {
+                    const newEl = document.createElement("div");
+                    newEl.innerHTML = "&nbsp;";
+                    newEl.className = "month";
+                    let m = changingDate.getMonth() + 1;
+                    if (m < 10) m = "0" + m;
+                    let y = changingDate.getFullYear();
+                    newEl.setAttribute("data-date", "" + y + m);
+                    if (year != y) {
+                        newEl.innerHTML = y;
+                        newEl.classList.add("year");
+                        year = y;
+                    }
+                    parentEl.appendChild(newEl);
+                    changingDate.setMonth(changingDate.getMonth() + 1);
+                }
+            }
+
+            function drawApplications(applications) {
+                const interviewsParentDiv = document.createElement("div");
+                interviewsParentDiv.id = "interviews-parent";
+                document.body.appendChild(interviewsParentDiv);
+
+                applications.forEach((app, index) => {
+                    const startMonth = app.startDate.substring(0, 6);
+                    const startDay = Number(app.startDate.substring(6)) / 30 * 50;
+                    const startElements = document.querySelectorAll("[data-date='" + startMonth + "']");
+                    if (startElements.length > 0) {
+                        const startElement = startElements[0];
+                        let endDate = app.endDate;
+                        if (endDate == null) {
+                            const currentDate = new Date();
+                            let d = currentDate.getDate() + 1;
+                            if (d < 10) m = "0" + d;
+                            let m = currentDate.getMonth() + 1;
+                            if (m < 10) m = "0" + m;
+                            let y = currentDate.getFullYear();
+                            endDate = "" + y + m + d;
+                        }
+                        const endMonth = endDate.substring(0, 6);
+                        const endDay = Number(endDate.substring(6)) / 30 * 50;
+                        const endElements = document.querySelectorAll("[data-date='" + endMonth + "']");
+                    
+                        if (endElements.length > 0) {
+                            const endElement = endElements[0];
+
+                            const barDiv = document.createElement("div");
+                            barDiv.id = "bar-" + index;
+                            barDiv.style.top = (startElement.offsetTop + startDay) + "px";
+                            barDiv.style.height = (endElement.offsetTop - startElement.offsetTop + endDay - startDay) + "px";
+                            barDiv.classList.add("time-entry");
+                            barDiv.classList.add("l-" + app.col);
+                            if (app.unEnded) {
+                                barDiv.classList.add("unended");
+                            }
+                            if (app.stage == "interview") {
+                                barDiv.classList.add("interview");
+                            } else if (app.stage == "successful") {
+                                barDiv.classList.add("successful");
+                            } else if (app.stage == "job") {
+                                barDiv.classList.add("job");
+                            }
+                            if (app.endDate == null) {
+                                barDiv.classList.add("arrow")
+                            }
+                            document.body.appendChild(barDiv);
+
+                            const detailDiv = document.createElement("div");
+                            detailDiv.classList.add("detail-block");
+                            detailDiv.setAttribute("data-related-id", index);
+                            detailDiv.innerHTML = "<b>" + app.title + "</b><br>" + app.description;
+                            if (app.stage == "interview") {
+                                detailDiv.classList.add("interview");
+                            } else if (app.stage == "successful") {
+                                detailDiv.classList.add("successful");
+                            } else if (app.stage == "job") {
+                                detailDiv.classList.add("job");
+                            }
+                            interviewsParentDiv.appendChild(detailDiv);
+
+                            const lineDiv = document.createElementNS('http://www.w3.org/2000/svg','line');
+                            lineDiv.setAttribute("id", "line-" + index);
+                            if (app.stage == "interview") {
+                                lineDiv.classList.add("interview");
+                            } else if (app.stage == "successful") {
+                                lineDiv.classList.add("successful");
+                            } else if (app.stage == "job") {
+                                lineDiv.classList.add("job");
+                            }
+                            const container = document.getElementById("line-container");
+                            container.appendChild(lineDiv);
+                        } else {
+                            console.error(app);
+                        }
+                    } else {
+                        console.error(app);
+                    }
+                });
+            }
+
+
+            function positions() {
+                let yPosition = 0;
+                var els = document.getElementById("interviews-parent").children;
+                for (let i = 0; i < els.length; i++) {
+                    const detailEl = els[i];
+                    const startElement = document.getElementById("bar-" + detailEl.getAttribute("data-related-id"));
+                    const startTop = Math.max((startElement.offsetTop), yPosition);
+                    detailEl.style.top = startTop + "px";
+                    yPosition = startTop + detailEl.offsetHeight + 8;
+
+                    const l = document.getElementById("line-" + detailEl.getAttribute("data-related-id"));
+                    l.setAttribute("x1", startElement.offsetLeft + startElement.offsetWidth);
+                    l.setAttribute("x2", 250);
+                    l.setAttribute("y1", startElement.offsetTop + 1);
+                    l.setAttribute("y2", startTop + 1);
+                }
+            }
+
+        </script>
+    </body>
+</html>
