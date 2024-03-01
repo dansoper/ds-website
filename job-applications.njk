@@ -578,7 +578,7 @@ layout:
                     if (endDate == null) {
                         const currentDate = new Date();
                         let d = currentDate.getDate() + 1;
-                        if (d < 10) m = "0" + d;
+                        if (d < 10) d = "0" + d;
                         let m = currentDate.getMonth() + 1;
                         if (m < 10) m = "0" + m;
                         let y = currentDate.getFullYear();
