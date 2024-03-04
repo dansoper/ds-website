@@ -599,8 +599,8 @@ layout:
                 applications.forEach((app, index) => {
                     const startMonth = app.startDate.substring(0, 6);
                     const startDay = Number(app.startDate.substring(6)) / 30 * 50;
-                    const endMonth = endDate.substring(0, 6);
-                    const endDay = Number(endDate.substring(6)) / 30 * 50;
+                    const endMonth = app.endDate.substring(0, 6);
+                    const endDay = Number(app.endDate.substring(6)) / 30 * 50;
 
                     const barDiv = document.createElement("div");
                     barDiv.id = "bar-" + index;
