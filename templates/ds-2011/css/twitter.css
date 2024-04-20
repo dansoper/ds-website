@@ -8,6 +8,6 @@ section.current-status .history {
     margin-top: 10px;
     font-size: 85%;
     margin-bottom: 0;
-    opacity: 0.7;
     line-height: 1;
+    color: rgba(0, 0, 0, 0.5);
 }
