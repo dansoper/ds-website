@@ -129,7 +129,7 @@ const ashWednesdays = {
 	2040: new Date(2040, 1, 15),
 }
 
-const festivals = {
+const festivalsData = {
 	'0125': 'conversion-of-paul',
 	'0202': 'candlemas',
 	'0319': 'joseph',
@@ -162,7 +162,7 @@ const festivals = {
 	'1228': 'holy-innocents'
 };
 
-const festivalsByNumber = {
+const festivalsByNumberData = {
 	'0': 'ash-wednesday',
 	'39': 'palm-sunday',
 	'43': 'maundy-thursday',
@@ -216,6 +216,9 @@ function findSeasonFor(date) {
 }
 
 function findFeastFor(date) {
+	let festivals = { ...festivalsData };
+	let festivalsByNumber = { ...festivalsByNumberData };
+
 	const y = date.getFullYear();
 
 	// transfers
