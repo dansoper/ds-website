@@ -7,6 +7,7 @@ module.exports = function () {
 
 const getToday = function () {
 	const today = new Date();
+    today.setHours(0, 0, 0, 0);
 	const season = findSeasonFor(today);
 	const feast = findFeastFor(today);
 	const day = feast != null ? feast : season;
@@ -18,6 +19,7 @@ const getYearData = function () {
 	const days = [];
 	for (let i = 0; i <= 365; i++) {
 		const dt = new Date();
+		dt.setHours(0, 0, 0, 0);
 		dt.setDate(dt.getDate() + i);
 		const season = findSeasonFor(dt);
 		const feast = findFeastFor(dt);
