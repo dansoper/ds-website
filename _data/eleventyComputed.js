@@ -15,30 +15,41 @@ module.exports = {
     countyStats: data => {
         const stations = data.rail.stations;
         const trips = data.rail.trips;
-        const counties = data.counties.map(c => { return { total: 0, visited: 0, name: c } });;
-        let total = 0;
-        let visited = 0;
+        let counties = data.counties.map(c => { return { total: 0, visited: 0, name: c } });
+        let englandTotal = 0;
+        let englandVisited = 0;
         stations.forEach(station => {
             let county = counties.find(a => a.name == station.county);
             if (county == null) {
                 county = { total: 0, visited: 0, name: station.county };
                 counties.push(county);
             }
-            total++;
+            if (county.name != "Wales" && county.name != "Scotland") englandTotal++;
             county.total++;
             if (trips.find(a => a.toCode == station.code || a.fromCode == station.code) != null) {
                 county.visited++;
-                visited++;
+                if (county.name != "Wales" && county.name != "Scotland") englandVisited++;
             }
         });
-        counties.push({ total, visited, name: "Total on map" });
-        counties.push({ total: data.countiesNotOnMap.notOnMapCount, visited: 0, name: "Total not on map (England)" });
-        counties.push({ total: data.countiesNotOnMap.notOnMapCount + total, visited, name: "England" });
-        const scot = 361
-        counties.push({ total: scot, visited: 0, name: "Scotland" });
-        const wal = 223;
-        counties.push({ total: wal, visited: 0, name: "Wales" });
-        counties.push({ total: total + data.countiesNotOnMap.notOnMapCount + scot + wal, visited, name: "Total" });
+        // The null checks here are because this runs at the start with an array of null objects. Not sure why.
+        const wales = counties.find(a => a != null && a.name == "Wales" );
+        const scotland = counties.find(a => a != null && a.name == "Scotland");
+        counties = counties.filter(a => a != null && a.name != "Wales" && a.name != "Scotland");
+        counties.push({ total: englandTotal, visited: englandVisited, name: "England (on map)" });
+        counties.push({ total: data.countiesNotOnMap.notOnMapCount, visited: 0, name: "England (not on map)" });
+        counties.push({ total: data.countiesNotOnMap.notOnMapCount + englandTotal, visited: englandVisited, name: "England" });
+        const scotTotal = 363;
+        const scot = scotland != null ? scotTotal - scotland.total : scotTotal;
+        if (scotland != null) { scotland.name = "Scotland (on map)"; counties.push(scotland); }
+        counties.push({ total: scot, visited: 0, name: scotland != null ?  "Scotland (not on map)" : "Scotland" });
+        const walTotal = 223;
+        const wal = wales != null ? walTotal - wales.total : walTotal;
+        if (wales != null) { wales.name = "Wales (on map)"; counties.push(wales); }
+        counties.push({ total: wal, visited: 0, name: wales != null ? "Wales (not on map)" : "Wales" });
+        if (wales != null) {
+            counties.push({ total: walTotal, visited: walTotal - wal, name: "Wales" });
+        }
+        counties.push({ total: englandTotal + data.countiesNotOnMap.notOnMapCount + scotTotal + walTotal, visited: englandVisited + scotTotal - scot + walTotal - wal, name: "Total" });
         
         
         counties.forEach(county => {

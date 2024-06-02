@@ -144,7 +144,7 @@ eleventyNavigation:
     <tr class="{{ "complete" if (county.percentage == 100 and county.name != "Extras") }}
       {{ "started" if (county.percentage > 0 and county.percentage < 50) }}
       {{ "halfway" if (county.percentage >= 50 and county.percentage < 100) }}
-      {{ "total-on-map" if (county.name == "Total on map" or county.name == "England") }}
+      {{ "total-on-map" if (county.name == "England" or county.name == "Scotland" or county.name == "Wales") }}
       {{ "total" if (county.name == "Total") }}"><td>{{ county.name }}{% if county.name == "London" %} (<a href="#london-breakdown">breakdown</a>){% endif %}</td><td>{{ county.total }}</td><td>{{ county.visited }}</td><td class="percentage">{% if county.name != "Extras" %}{{ county.percentage }}%{% endif %}</td></tr>
   {% endfor %}
 </table>
@@ -179,6 +179,7 @@ eleventyNavigation:
   <li>25% of all National Rail stations: <b>Sunday 18 February 2024</b>.</li>
   <li>700 stations: <b>Saturday 13 April 2024</b>.</li>
   <li>Rutland complete: <b>Sunday 19 May 2024</b>.</li>
+  <li>800 stations: <b>Wednesday 29 May 2024</b>.</li>
   <li>Herefordshire complete: <b>Friday 31 May 2024</b>.</li>
 </ul>
 
