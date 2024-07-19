@@ -47,9 +47,9 @@ module.exports = {
         if (wales != null) { wales.name = "Wales (on map)"; counties.push(wales); }
         counties.push({ total: wal, visited: 0, name: wales != null ? "Wales (not on map)" : "Wales" });
         if (wales != null) {
-            counties.push({ total: walTotal, visited: walTotal - wal, name: "Wales" });
+            counties.push({ total: walTotal, visited: wales.total, name: "Wales" });
         }
-        counties.push({ total: englandTotal + data.countiesNotOnMap.notOnMapCount + scotTotal + walTotal, visited: englandVisited + scotTotal - scot + walTotal - wal, name: "Total" });
+        counties.push({ total: englandTotal + data.countiesNotOnMap.notOnMapCount + scotTotal + walTotal, visited: englandVisited + scotland.total + wales.total, name: "Total" });
         
         
         counties.forEach(county => {
