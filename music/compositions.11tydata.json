@@ -357,9 +357,15 @@
             "date": "October 2010"
         },
         {
-            "title": "Regents Square",
+            "title": "Regent Square",
             "voicing": "Descant",
             "date": "April 1997"
+        },
+        {
+            "title": "Regent Square",
+            "voicing": "Last-verse harmony",
+            "date": "August 2022",
+            "url": "regent%20square%20(harmony).pdf"
         },
         {
             "title": "Salva Festa Dies (Hail thee, Festival Day)",
@@ -376,6 +382,12 @@
             "title": "The Servant King (From heaven you came, helpless babe)",
             "voicing": "Organ part",
             "date": "July 2011"
+        },
+        {
+            "title": "Westminster",
+            "voicing": "Last-verse harmony",
+            "date": "August 2022",
+            "url": "westminster%20(harmony).pdf"
         },
         {
             "title": "Zither Carol (Girls and boys)",
