@@ -34,14 +34,22 @@ module.exports = {
         // The null checks here are because this runs at the start with an array of null objects. Not sure why.
         const wales = counties.find(a => a != null && a.name == "Wales" );
         const scotland = counties.find(a => a != null && a.name == "Scotland");
+        const englandNotOnMapExists = data.countiesNotOnMap.notOnMapCount > 0;
         counties = counties.filter(a => a != null && a.name != "Wales" && a.name != "Scotland");
-        counties.push({ total: englandTotal, visited: englandVisited, name: "England (on map)" });
-        counties.push({ total: data.countiesNotOnMap.notOnMapCount, visited: 0, name: "England (not on map)" });
+        if (englandNotOnMapExists) {
+            counties.push({ total: englandTotal, visited: englandVisited, name: "England (on map)" });
+            counties.push({ total: data.countiesNotOnMap.notOnMapCount, visited: 0, name: "England (not on map)" });
+        }
         counties.push({ total: data.countiesNotOnMap.notOnMapCount + englandTotal, visited: englandVisited, name: "England" });
+        
         const scotTotal = 363;
         const scot = scotland != null ? scotTotal - scotland.total : scotTotal;
         if (scotland != null) { scotland.name = "Scotland (on map)"; counties.push(scotland); }
         counties.push({ total: scot, visited: 0, name: scotland != null ?  "Scotland (not on map)" : "Scotland" });
+        if (scotland != null) {
+            counties.push({ total: scotTotal, visited: scotland?.visited ?? 0, name: "Scotland" });
+        }
+
         const walTotal = 223;
         const wal = wales != null ? walTotal - wales.total : walTotal;
         if (wales != null) { wales.name = "Wales (on map)"; counties.push(wales); }
@@ -49,8 +57,8 @@ module.exports = {
         if (wales != null) {
             counties.push({ total: walTotal, visited: wales?.visited ?? 0, name: "Wales" });
         }
+
         counties.push({ total: englandTotal + data.countiesNotOnMap.notOnMapCount + scotTotal + walTotal, visited: englandVisited + (scotland?.visited ?? 0) + (wales?.visited ?? 0), name: "Total" });
-        
         
         counties.forEach(county => {
             if (county != null) {
