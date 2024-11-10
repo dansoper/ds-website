@@ -18,6 +18,11 @@
         { "date": 2010, "href": "https://holytrinit3.wixsite.com/holy-trinity-/home", "name": "Dartford Parish Church" },
         { "date": 2011, "href": "https://www.stedscathedral.org", "name": "St Edmundsbury Cathedral" },
         { "date": 2016, "href": "https://www.victoriaforms.com", "name": "Victoria Forms" },
-        { "date": 2024, "href": "https://www.speedybooker.com", "name": "SpeedyBooker" }
+        { "date": 2024, "href": "https://www.speedybooker.com", "name": "SpeedyBooker" },
+        { "date": 2024, "href": "https://www.universityrooms.com", "name": "UniversityRooms.com" },
+        { "date": 2024, "href": "https://www.beachhuts.com", "name": "BeachHuts.com" },
+        { "date": 2024, "href": "https://www.britainsfinest.co.uk", "name": "Britain&rsquo;s Finest" },
+        { "date": 2024, "href": "https://www.monasteries.com", "name": "Monasteries.com" },
+        { "date": 2024, "href": "https://www.fishpal.com", "name": "FishPal" }
     ]
 }
