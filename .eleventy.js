@@ -46,6 +46,10 @@ module.exports = function (eleventyConfig) {
         if (dateObj == null || dateObj == "") return moment().diff(moment(since, "YYYYMMDD"), "days");
         return moment(dateObj).diff(moment(since, "YYYYMMDD"), "days");
     });
+    eleventyConfig.addFilter("addDaysToDate", function (dateObj, add) {
+        if (dateObj == null || dateObj == "") return "";
+        return moment(dateObj).add(add, "days");
+    });
 
     eleventyConfig.addFilter("lineBreaksToBr", function (str) {
         return str.replace(/\n/g, "\n<br>");

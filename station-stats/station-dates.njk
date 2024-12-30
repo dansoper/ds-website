@@ -1,0 +1,13 @@
+<table>
+<tr>
+<th></th><th>Station</th><th>Visit date</th><th>Feature date</th>
+</tr>
+{% for station in eachStation %}
+<tr>
+<td>{{loop.index}}</td>
+<td>{{station.name}}</td>
+<td>{{station.visitDate | dateObjectToShortDateTime}}</td>
+<td>{{startOf2025 | addDaysToDate(loop.index - 1) | dateObjectToShortDate }}</td>
+</tr>
+{% endfor %}
+</table>
