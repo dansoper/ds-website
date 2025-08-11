@@ -1,0 +1,45 @@
+<table class="tab">
+<tr>
+<th>Date</th><th>Count</th>
+</tr>
+{% for year in stationYears %}
+<tr>
+<td>{{year.year}}</td>
+<td>{{year.items.length}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<hr>
+
+<table class="tab">
+<tr>
+<th>Date</th><th>Count</th>
+</tr>
+{% for month in stationMonths %}
+<tr>
+<td>{{month.month}}</td>
+<td>{{month.items.length}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<hr>
+
+<table class="tab">
+<tr>
+<th>Date</th><th>Count</th>
+</tr>
+{% for day in stationDays %}
+<tr>
+<td>{{day.day}}</td>
+<td>{{day.items.length}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<style>
+    .tab td {
+        padding: 0 5px;
+    }
+</style>
