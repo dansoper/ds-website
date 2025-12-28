@@ -1,2 +1,6 @@
+[build]
+publish = "_site"
+command = "npx @11ty/eleventy"
+
 [build.environment]
-  TZ = "Europe/London"
+TZ = "Europe/London"
