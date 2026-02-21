@@ -1,0 +1,60 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/luxon@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon"></script>
+
+<canvas id="progressChart"></canvas>
+
+<script>
+const data = [
+{% for month in stationMonths %}
+  { x: "{{month.month}}", y: {{month.items.length}} },
+{% endfor %}
+];
+
+data.sort((a, b) => new Date(a.x) - new Date(b.x));
+
+// Optional: cumulative progress
+let runningTotal = 0;
+const cumulative = data.map(point => {
+  runningTotal += point.y;
+  return { x: point.x, y: runningTotal };
+});
+
+const ctx = document.getElementById("progressChart");
+
+new Chart(ctx, {
+  type: "line",
+  data: {
+    datasets: [{
+      label: "Stations visited (cumulative)",
+      data: cumulative,
+      tension: 0.2,
+      fill: false
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      x: {
+      type: "time",
+      time: {
+        unit: "month",              // monthly ticks
+        displayFormats: {
+          month: "MMM yyyy"         // e.g. Jan 2026
+        }
+      },
+      ticks: {
+        autoSkip: true
+      }
+    },
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: "Total Stations"
+        }
+      }
+    }
+  }
+});
+</script>
