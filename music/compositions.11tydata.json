@@ -113,6 +113,13 @@
             "url": "2022-Reproaches-SATB.pdf"
         },
         {
+            "title": "Responses",
+            "voicing": "SSA with optional organ",
+            "date": "December 2025",
+            "url": "2025-Responses-for-SSA.pdf",
+            "extraInfo": "Written for Richard Cook and the St Edmundsbury Singers, and premiered by them in February 2026"
+        },
+        {
             "title": "Requiem Aeternam",
             "voicing": "SATBSATB",
             "date": "February 2005",
@@ -123,6 +130,13 @@
             "voicing": "SSAATTBB + Organ",
             "date": "November 2004",
             "extraInfo": "A setting (in English) of Psalm 129. Part of a set of three, including \"Blessed are all that fear the Lord\". This setting is loosely based on a Plainsong Psalm tone, with a fair amount of whole-tone harmony."
+        },
+        {
+            "title": "The Apostles Mass",
+            "voicing": "SATB + Organ",
+            "date": "May 2025",
+            "url": "2025-The-Apostles-Mass.pdf",
+            "extraInfo": "Written for Sanderstead Singers and premiered by them at Canterbury Cathedral for St Bartholomew's Day, August 2025"
         },
         {
             "title": "The First Nowell",
@@ -192,6 +206,12 @@
             "subtitle": "with words by W.H. Auden",
             "voicing": "Sop / Piano",
             "date": "November 2003"
+        },
+        {
+            "title": "An Exploration on 'Tell out, my Soul'",
+            "voicing": "Organ",
+            "date": "August 2025",
+            "url": "2025-Woodlands.pdf"
         },
         {
             "title": "Fugue",
