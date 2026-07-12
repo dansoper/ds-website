@@ -1,6 +1,37 @@
 section.current-status {
     word-wrap: break-word;
 }
+section.current-status h2 {
+    font-size: 16px;
+    line-height: 19px;
+    color: #137785;
+}
+section.current-status article {
+    margin-top: 4px;
+}
+section.current-status article .date {
+    font-size: 85%;
+    line-height: 120%;
+    color: rgba(0, 0, 0, 0.5);
+}
+section.current-status article h3 {
+    font-size: 15px;
+    line-height: 19px;
+    color: #515151;
+}
+section.current-status article .location {
+    font-style: italic;
+}
+section.current-status article .role {
+    font-size: 85%;
+    font-style: italic;
+    color: #137785;
+}
+section.current-status .station-name,
+section.current-status .percentage {
+    font-weight: bold;
+    color: #137785;
+}
 section.current-status .time {
     font-size: 85%;
 }
@@ -10,4 +41,9 @@ section.current-status .history {
     margin-bottom: 0;
     line-height: 1;
     color: rgba(0, 0, 0, 0.5);
+}
+section.current-status .history + h2 {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
 }

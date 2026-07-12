@@ -1,0 +1,105 @@
+---
+pageTitle: Station List
+stylesheets:
+- station-list
+---
+
+<p>This page lists every station on my <a href="/stations-progress/">stations project</a> map, whether I&rsquo;ve visited it, and when. Search by station or county name, or click a column heading to sort&mdash;the list starts sorted alphabetically.</p>
+
+<p>Please note this doesn&rsquo;t currently include all 2,597 stations&mdash;only those in my spreadsheet. None of Scotland, and lots of Wales, are currently missing.</p>
+
+<div id="station-list-controls">
+  <label for="station-search">Search</label>
+  <input type="search" id="station-search" placeholder="Station or county&hellip;" autocomplete="off">
+  <span id="station-count"></span>
+</div>
+
+<div id="station-table-wrapper">
+  <table id="station-table">
+    <thead>
+      <tr>
+        <th data-sort="text" data-key="name" class="sort-asc">Station</th>
+        <th data-sort="text" data-key="county">County</th>
+        <th data-sort="number" data-key="visited">Visited</th>
+        <th data-sort="number" data-key="date">First visited</th>
+        <th data-sort="number" data-key="visits">Visits</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for station in allStationsList %}
+      <tr class="{{ "visited" if station.visited else "unvisited" }}" data-name="{{ station.name | lower }}" data-county="{{ (station.county or "") | lower }}">
+        <td>{{ station.name }} <span class="code">({{ station.code }})</span></td>
+        <td>{{ station.county }}{% if station.londonBorough %} &ndash; {{ station.londonBorough }}{% endif %}</td>
+        <td data-value="{{ 1 if station.visited else 0 }}">{{ "Yes" if station.visited else "No" }}</td>
+        <td data-value="{{ station.firstTrip.date | numberOfDaysSince("19000101") if station.visited else -1 }}">{% if station.visited %}{{ station.firstTrip.date | dateObjectToShortDate }}{% else %}&mdash;{% endif %}</td>
+        <td data-value="{{ station.visitCount }}">{{ station.visitCount if station.visited else "" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% set js %}
+  (function () {
+    const table = document.getElementById('station-table');
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const headers = Array.from(table.querySelectorAll('th'));
+    const searchInput = document.getElementById('station-search');
+    const countEl = document.getElementById('station-count');
+
+    function updateCount() {
+      const visible = rows.filter(function (row) { return row.style.display !== 'none'; }).length;
+      countEl.textContent = visible + ' of ' + rows.length + ' stations shown';
+    }
+
+    searchInput.addEventListener('input', function () {
+      const q = this.value.trim().toLowerCase();
+      rows.forEach(function (row) {
+        const haystack = row.dataset.name + ' ' + row.dataset.county;
+        row.style.display = haystack.indexOf(q) === -1 ? 'none' : '';
+      });
+      updateCount();
+    });
+
+    let currentSort = { key: 'name', dir: 1 };
+
+    headers.forEach(function (th) {
+      th.addEventListener('click', function () {
+        const key = th.dataset.key;
+        const type = th.dataset.sort;
+        const dir = (currentSort.key === key) ? -currentSort.dir : 1;
+        currentSort = { key: key, dir: dir };
+
+        headers.forEach(function (h) { h.classList.remove('sort-asc', 'sort-desc'); });
+        th.classList.add(dir === 1 ? 'sort-asc' : 'sort-desc');
+
+        const cellIndex = headers.indexOf(th);
+
+        rows.sort(function (a, b) {
+          const ca = a.children[cellIndex];
+          const cb = b.children[cellIndex];
+          let va, vb;
+          if (type === 'number') {
+            va = Number(ca.dataset.value);
+            vb = Number(cb.dataset.value);
+          } else {
+            va = ca.textContent.trim().toLowerCase();
+            vb = cb.textContent.trim().toLowerCase();
+          }
+          if (va < vb) return -1 * dir;
+          if (va > vb) return 1 * dir;
+          return 0;
+        });
+
+        rows.forEach(function (row) { tbody.appendChild(row); });
+      });
+    });
+
+    updateCount();
+  })();
+{% endset %}
+
+<script>
+  {{ js | jsmin | safe }}
+</script>

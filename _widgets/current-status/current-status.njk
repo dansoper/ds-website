@@ -1,42 +1,22 @@
 <section class="current-status">
-  <h1>Current status</h1>
-  <p>Hello! My last update here was December 2023, so I thought I'd put a new message to replace that. Busy times at the moment, with quite a bit of playing over the last month or so, on top of getting to know the new job.</p>
-  <p class="time">10 November 2024</p>
-  <!--<p>Happy Christmas! Don't forget Christmas lasts for a full 12 days.</p>
-  <p class="time">28 December 2023</p>
-  <p>It's been a long time since I've updated this status. A lot has happened in the last 3 weeks. We've bought a new (second-hand) car, as the other one died. Kat and I celebrated 20 years together. Now looking ahead I can see Christmas coming crashing towards us.</p>
-  <p class="time">19 November 2023</p>
-  <p>After a fun weekend playing at Chester (including the fun of getting there by train during storms and floods), I'm now looking forward to this weekend playing at Ely.</p>
-  <p class="time">25 October 2023</p>
-  <p>I *think* things are going well at the moment! Also I've just written a descant to 'For all the saints'.</p>
-  <p class="time">12 October 2023</p>
-  <p>Last week's work week went a lot better than I thought it might! And after this weekend, I've been to at least station in every London borough.</p>
-  <p class="time">1 October 2023</p>
-  <p>Writing at the start of a new work week. Not too sure
-  how keen I am about that.</p>
-  <p class="time">25 September 2023</p>
-  <p>Enjoying things being back into the 'normal' routine.</p>
-  <p class="time">10 September 2023</p>
-  <p>This weekend, I've ticked off 6 stations in Norfolk, which means I've now done all 31 Norfolk stations.</p>
-  <p class="time">2 September 2023</p>
-  <p>I have two days playing at Canterbury Cathedral next week, and then it's proper back to work until Christmas!</p>
-  <p class="time">25 August 2023</p>
-  <p>It's been a while since I updated this status. Last week I was conducting Sanderstead Singers for a great week in Norwich. This week is a normal work week, then we have 4 days in Worcester for some stations and evensongs.</p>
-  <p class="time">17 August 2023</p>
-  <p>I'm on the Isle of Wight! Trains, buses and Blackgang Chine.</p>
-  <p class="time">30 July 2023</p>
-  <p>Four days of work left until holiday on the Isle of Wight!</p>
-  <p class="time">22 July 2023</p>
-  <p>A bit late with my message this week. This weekend I'm converting some of my pedalboard from physical contacts to reed switches. Wish me luck!</p>
-  <p class="time">15 July 2023</p>
-  <p>Happy birthday to my lovely 7-year-old daughter!</p>
-  <p class="time">5 July 2023</p>
-  <p>Highs and lows over the last week.</p>
-  <p class="time">28 June 2023</p>
-  <p>A great week since my last update, getting several home tasks done, a fun choir practice last Saturday, and reaching 500 stations and 25% of England's stations. Looking forward to being the sole parent for the weekend.</p>
-  <p class="time">21 June 2023</p>
-  <p>Work is busy as ever. Looking forward to first rehearsal, on Saturday, with Sanderstead Singers for our summer week in Norwich.</p>
-  <p class="time">14 June 2023</p>-->
-  <p class="history">I used to put my latest tweet here, but I&rsquo;m not paying for the Twitter API,
-  so now you get content specifically written for this slot, updated periodically!</p>
+  {% if nextEvent %}
+    <h2>Next event</h2>
+    {% set event = nextEvent %}
+    {% set headingLevel = 3 %}
+    {% include '../events/event.njk' %}
+    <p class="history"><a href="/music/events/">See all events</a></p>
+  {% else %}
+    <h2>Events</h2>
+    <p>Check back soon!</p>
+    <p class="history"><a href="/music/events/">See past events</a></p>
+  {% endif %}
+
+  <h2>Stations</h2>
+  {% if stationTotals %}
+    <p>{{ stationTotals.visited }} of {{ stationTotals.total }} stations visited (<span class="percentage">{{ stationTotals.percentage }}%</span>).</p>
+  {% endif %}
+  {% if lastVisitedStation %}
+    <p>Last ticked off: <span class="station-name">{{ lastVisitedStation.name }}</span>, {{ lastVisitedStation.firstTrip.date | dateObjectToShortDate }}.</p>
+  {% endif %}
+  <p class="history"><a href="/stations-progress/">See stations progress</a></p>
 </section>

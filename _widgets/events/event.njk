@@ -6,6 +6,6 @@
     <h3>{{ event.title }}</h3>
     {% endif %}
     {% if event.repertoire %}<small>{{ event.repertoire | lineBreaksToBr | safe }}</small>{% endif %}
-    {% if event.location %}<div>{{ event.location }}</div>{% endif %}
+    {% if event.location %}<div class="location">{{ event.location }}</div>{% endif %}
     {% if event.role %}<div class="role">{{ event.role }}</div>{% endif %}
 </article>
