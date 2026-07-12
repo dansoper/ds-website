@@ -1,9 +1,9 @@
-<article {% if event.repertoire %}class="tall"{% endif %}>
+<article class="event{% if event.repertoire %} tall{% endif %}">
     <div class="date">{{ event.startDateFormatted }}{% if event.endDateFormatted %} &ndash; {{ event.endDateFormatted }}{% endif%}{% if event.time %}, {{ event.time }}{% endif %}</div>
     {% if headingLevel > 0 %}
-    <h{{ headingLevel }}>{{ event.title }}</h{{ headingLevel }}>
+    <h{{ headingLevel }} class="title">{{ event.title }}</h{{ headingLevel }}>
     {% else %}
-    <h3>{{ event.title }}</h3>
+    <h3 class="title">{{ event.title }}</h3>
     {% endif %}
     {% if event.repertoire %}<small>{{ event.repertoire | lineBreaksToBr | safe }}</small>{% endif %}
     {% if event.location %}<div class="location">{{ event.location }}</div>{% endif %}

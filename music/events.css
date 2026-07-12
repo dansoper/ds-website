@@ -1,18 +1,17 @@
-.grid-group article h3, .grid-group article h4 {
+.grid-group .event .title {
     font-weight: normal;
-    font-size: 17px;
-    line-height: 24px;
-    color: #137785;
-    padding:0;
+    font-size: var(--text-size-base);
+    color: var(--color-teal);
+    padding: 0;
 }
-.grid-group article small {
+.grid-group .event small {
     padding-left: 10px;
     display: block;
 }
-.grid-group article .role, .grid-group article .date {
+.grid-group .event .role, .grid-group .event .date {
     font-style: italic;
 }
 
-.grid-group article h3 ~ small, .grid-group article h4 ~ small {
+.grid-group .event .title ~ small {
     margin: 0;
 }

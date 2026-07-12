@@ -23,7 +23,7 @@
 .point {
     width: 20px;
     height: 20px;
-    background-color: #137785;
+    background-color: var(--color-teal);
     border-radius: 100%;
     z-index: 2;
     border: 3px #333333 solid;
@@ -42,7 +42,7 @@
 }
 
 .timeline ul li .date span {
-    background-color: #ddd;
+    background-color: var(--color-neutral-light);
     text-align: center;
     padding: 5px 10px;
     border-radius: 10px;
@@ -52,7 +52,7 @@
 .timeline ul li .content a {
     display: block;
     padding: 5px 8px;
-    background-color: #eee;
+    background-color: var(--color-neutral-lighter);
     margin-top: 0;
     margin-right: 10px;
     text-align: center;

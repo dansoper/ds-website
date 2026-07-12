@@ -1,68 +1,68 @@
 #station-list-controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
 }
 #station-list-controls label {
-  font-weight: bold;
+    font-weight: bold;
 }
 #station-list-controls input {
-  padding: 4px 8px;
-  border: 1px solid #137785;
-  border-radius: 4px;
-  flex-grow: 1;
-  max-width: 300px;
+    padding: 4px 8px;
+    border: 1px solid var(--color-teal);
+    border-radius: 4px;
+    flex-grow: 1;
+    max-width: 300px;
 }
 #station-count {
-  color: rgb(100,100,100);
-  font-size: 90%;
+    color: rgb(100,100,100);
+    font-size: 90%;
 }
 
 #station-table-wrapper {
-  overflow-x: auto;
+    overflow-x: auto;
 }
 
 #station-table {
-  border-collapse: collapse;
-  width: 100%;
-  min-width: 480px;
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 480px;
 }
 
 #station-table th, #station-table td {
-  padding: 4px 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+    padding: 4px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-neutral-light);
 }
 
 #station-table th {
-  background-color: #137785;
-  color: #fff;
-  cursor: pointer;
-  user-select: none;
-  white-space: nowrap;
+    background-color: var(--color-teal);
+    color: var(--color-white);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
 }
 
 #station-table th.sort-asc::after {
-  content: " \25B2";
+    content: " \25B2";
 }
 #station-table th.sort-desc::after {
-  content: " \25BC";
+    content: " \25BC";
 }
 
 #station-table tbody tr:nth-child(even) {
-  background-color: #f5f5f5;
+    background-color: #f5f5f5;
 }
 
 #station-table tr.visited td:nth-child(3) {
-  color: green;
-  font-weight: bold;
+    color: green;
+    font-weight: bold;
 }
 #station-table tr.unvisited td:nth-child(3) {
-  color: #b00;
+    color: #b00;
 }
 
 #station-table .code {
-  color: rgb(120,120,120);
-  font-size: 85%;
+    color: rgb(120,120,120);
+    font-size: 85%;
 }

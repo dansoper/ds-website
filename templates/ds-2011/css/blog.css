@@ -1,8 +1,8 @@
 ul.tags li {
     display: inline-block;
     margin-right: 5px;
-    background-color: #e0dbbf;
-    color: white;
+    background-color: var(--color-tan);
+    color: var(--color-white);
     padding: 5px;
     padding-bottom: 0;
     padding-top: 1px;
@@ -13,7 +13,7 @@ ul.tags a {
     text-decoration: none;
 }
 ul.tags a:hover {
-    color: white;
+    color: var(--color-white);
 }
 ul.tags {
     padding-left: 0;
