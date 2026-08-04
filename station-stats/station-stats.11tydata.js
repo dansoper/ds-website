@@ -1,4 +1,5 @@
 const moment = require('moment');
+const { decimalToTime } = require('../_utils/trip-time');
 
 module.exports = {
     eleventyComputed: {
@@ -109,20 +110,3 @@ const stationVisits = (data) => {
     s.sort((a, b) => a.visitDate - b.visitDate);
     return s;
 };
-
-function decimalToTime(decimal) {
-    decimal = decimal * 24;
-    // Calculate the number of hours (integer part)
-    let hours = Math.floor(decimal);
-
-    // Calculate the remaining minutes (decimal part * 60)
-    let minutes = Math.round((decimal - hours) * 60);
-
-    // Ensure minutes are within the range of 0-59
-    if (minutes === 60) {
-        minutes = 0;
-        hours++;
-    }
-
-    return { hours, minutes };
-}

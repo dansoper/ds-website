@@ -143,7 +143,7 @@ eleventyNavigation:
       {{ "started" if (county.percentage > 0 and county.percentage < 50) }}
       {{ "halfway" if (county.percentage >= 50 and county.percentage < 100) }}
       {{ "total-on-map" if (county.name == "England" or county.name == "Scotland" or county.name == "Wales") }}
-      {{ "total" if (county.name == "Total") }}"><td>{{ county.name }}{% if county.name == "London" %} (<a href="#london-breakdown">breakdown</a>){% endif %}</td><td>{{ county.total }}</td><td>{{ county.visited }}</td><td class="percentage">{% if county.name != "Extras" %}{{ county.percentage }}%{% endif %}</td></tr>
+      {{ "total" if (county.name == "Total") }}"><td>{{ county.name }}{% if county.name == "London" %} (<a href="#london-breakdown">breakdown</a>){% endif %}</td><td>{{ county.total | formatNum }}</td><td>{{ county.visited | formatNum }}</td><td class="percentage">{% if county.name != "Extras" %}{{ county.percentage }}%{% endif %}</td></tr>
   {% endfor %}
 </table>
 
@@ -193,6 +193,7 @@ eleventyNavigation:
   <li>Buckinghamshire complete: <b>Saturday 14 February 2026</b>.</li>
   <li>50% of all National Rail stations: <b>Tuesday 26 May 2026</b>.</li>
   <li>1,300 stations: <b>Saturday 11 July 2026</b>.</li>
+  <li>Oxfordshire and Northamptonshire complete: <b>Tuesday 4 August 2026</b>.</li>
 </ul>
 
 <script>

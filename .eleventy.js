@@ -23,6 +23,10 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("_redirects");
     eleventyConfig.addPassthroughCopy("robots.txt");
 
+    eleventyConfig.addFilter("formatNum", function (num) {
+        return Number(num).toLocaleString("en-GB");
+    });
+
     eleventyConfig.addFilter("friendlyDate", function (dateObj) {
         return moment(dateObj, "ddd MMM D HH:mm:ss ZZ YYYY").locale("en").fromNow();
     });

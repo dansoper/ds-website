@@ -6,7 +6,7 @@ stylesheets:
 
 <p>This page lists every station on my <a href="/stations-progress/">stations project</a> map, whether I&rsquo;ve visited it, and when. Search by station or county name, or click a column heading to sort&mdash;the list starts sorted alphabetically.</p>
 
-<p>Please note this doesn&rsquo;t currently include all 2,597 stations&mdash;only those in my spreadsheet. None of Scotland, and lots of Wales, are currently missing.</p>
+<p>Please note this doesn&rsquo;t currently include all {{ stationTotals.total | formatNum }} stations&mdash;only those in my spreadsheet. None of Scotland, and lots of Wales, are currently missing.</p>
 
 <div id="station-list-controls">
   <label for="station-search">Search</label>
@@ -31,7 +31,7 @@ stylesheets:
         <td>{{ station.name }} <span class="code">({{ station.code }})</span></td>
         <td>{{ station.county }}{% if station.londonBorough %} &ndash; {{ station.londonBorough }}{% endif %}</td>
         <td data-value="{{ 1 if station.visited else 0 }}">{{ "Yes" if station.visited else "No" }}</td>
-        <td data-value="{{ station.firstTrip.date | numberOfDaysSince("19000101") if station.visited else -1 }}">{% if station.visited %}{{ station.firstTrip.date | dateObjectToShortDate }}{% else %}&mdash;{% endif %}</td>
+        <td data-value="{{ station.visitTimestamp if station.visited else -1 }}">{% if station.visited %}{{ station.firstTrip.date | dateObjectToShortDate }}{% else %}&mdash;{% endif %}</td>
         <td data-value="{{ station.visitCount }}">{{ station.visitCount if station.visited else "" }}</td>
       </tr>
       {% endfor %}
@@ -50,7 +50,11 @@ stylesheets:
 
     function updateCount() {
       const visible = rows.filter(function (row) { return row.style.display !== 'none'; }).length;
-      countEl.textContent = visible + ' of ' + rows.length + ' stations shown';
+      countEl.textContent = formatNum(visible) + ' of ' + formatNum(rows.length) + ' stations shown';
+    }
+
+    function formatNum(num) {
+      return Number(num).toLocaleString("en-GB");
     }
 
     searchInput.addEventListener('input', function () {

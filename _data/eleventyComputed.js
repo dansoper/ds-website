@@ -1,4 +1,5 @@
 const moment = require('moment');
+const { tripMoment } = require('../_utils/trip-time');
 
 module.exports = {
     futureEvents: data => {
@@ -21,9 +22,12 @@ module.exports = {
         const trips = data.rail.trips;
         const visitCounts = countStationVisits(trips);
         return data.rail.stations.filter(station => trips.find(a => a.toCode == station.code || a.fromCode == station.code) != null).map(station => {
+            const firstTrip = trips.find(a => a.toCode == station.code || a.fromCode == station.code);
             return {
                 ...station,
-                firstTrip: trips.find(a => a.toCode == station.code || a.fromCode == station.code),
+                firstTrip,
+                // Includes the time of day (unlike firstTrip.date), so same-day visits sort/compare correctly.
+                visitTimestamp: tripMoment(firstTrip, station.code).valueOf(),
                 visitCount: visitCounts[station.code] || 0 };
         });
     },
@@ -36,14 +40,14 @@ module.exports = {
         const visitedStations = Array.isArray(data.visitedStations) ? data.visitedStations : [];
         const unvisitedStations = Array.isArray(data.unvisitedStations) ? data.unvisitedStations : [];
         const visited = visitedStations.map(station => ({ ...station, visited: true }));
-        const unvisited = unvisitedStations.map(station => ({ ...station, visited: false, firstTrip: null, visitCount: 0 }));
+        const unvisited = unvisitedStations.map(station => ({ ...station, visited: false, firstTrip: null, visitTimestamp: null, visitCount: 0 }));
         return [...visited, ...unvisited].sort((a, b) => a.name.localeCompare(b.name));
     },
     lastVisitedStation: data => {
         // Depends on visitedStations having already resolved in the data cascade.
         const visited = Array.isArray(data.visitedStations) ? data.visitedStations : [];
         return visited.reduce((latest, station) => {
-            return latest == null || station.firstTrip.date > latest.firstTrip.date ? station : latest;
+            return latest == null || station.visitTimestamp > latest.visitTimestamp ? station : latest;
         }, null);
     },
     stationTotals: data => {

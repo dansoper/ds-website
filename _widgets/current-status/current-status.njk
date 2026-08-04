@@ -13,7 +13,7 @@
 
   <h2>Stations</h2>
   {% if stationTotals %}
-    <p>{{ stationTotals.visited }} of {{ stationTotals.total }} stations visited (<span class="percentage">{{ stationTotals.percentage }}%</span>).</p>
+    <p>{{ stationTotals.visited | formatNum }} of {{ stationTotals.total | formatNum }} stations visited (<span class="percentage">{{ stationTotals.percentage }}%</span>).</p>
   {% endif %}
   {% if lastVisitedStation %}
     <p>Last ticked off: <span class="station-name">{{ lastVisitedStation.name }}</span>, {{ lastVisitedStation.firstTrip.date | dateObjectToShortDate }}.</p>
