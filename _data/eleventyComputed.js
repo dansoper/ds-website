@@ -85,7 +85,7 @@ module.exports = {
         }
         counties.push({ total: data.countiesNotOnMap.notOnMapCount + englandTotal, visited: englandVisited, name: "England" });
         
-        const scotTotal = 363;
+        const scotTotal = 364;
         const scot = scotland != null ? scotTotal - scotland.total : scotTotal;
         if (scotland != null) { scotland.name = "Scotland (on map)"; counties.push(scotland); }
         counties.push({ total: scot, visited: 0, name: scotland != null ?  "Scotland (not on map)" : "Scotland" });
