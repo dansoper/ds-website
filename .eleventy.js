@@ -19,7 +19,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("templates");
     eleventyConfig.addPassthroughCopy("images");
     eleventyConfig.addPassthroughCopy("lib");
-    eleventyConfig.addPassthroughCopy("santa2025");
+    eleventyConfig.addPassthroughCopy("santa2026");
     eleventyConfig.addPassthroughCopy("_redirects");
     eleventyConfig.addPassthroughCopy("robots.txt");
 
